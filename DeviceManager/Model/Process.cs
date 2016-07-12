@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DeviceManager
+namespace DeviceManager.Model
 {
     public class Process
     {

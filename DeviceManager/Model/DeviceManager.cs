@@ -57,7 +57,8 @@ namespace DeviceManager
         Mobile,
         PC,
         HoloLens,
-        Xbox
+        Xbox,
+        IoT
     }
     public enum ConnectionType
     {

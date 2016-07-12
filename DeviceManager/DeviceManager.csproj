@@ -107,17 +107,20 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppxPackage.cs" />
+    <Compile Include="Model\AppxPackage.cs" />
     <Compile Include="ConnectCredential.cs" />
-    <Compile Include="DeviceManager.cs" />
+    <Compile Include="Model\DeviceManager.cs" />
     <Compile Include="HoloLensDevice.cs" />
     <Compile Include="HoloLensDeviceManager.cs" />
     <Compile Include="IDevice.cs" />
+    <Compile Include="IoTDevice.cs" />
+    <Compile Include="IoTDeviceManager.cs" />
     <Compile Include="MobileDeviceManager.cs" />
     <Compile Include="MobileDevice.cs" />
-    <Compile Include="Process.cs" />
+    <Compile Include="Model\NetworkProfile.cs" />
+    <Compile Include="Model\Process.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SystemPerf.cs" />
+    <Compile Include="Model\SystemPerf.cs" />
     <Compile Include="XboxDevice.cs" />
     <Compile Include="XboxDeviceManager.cs" />
     <EmbeddedResource Include="Properties\DeviceManager.rd.xml" />
