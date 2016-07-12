@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DeviceManager.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace DeviceManager
     {
         DeviceType DeviceType { get; }
         string Address { get; }
+        bool IsReady { get; }
         bool IsAuthed { get; }
         bool IsConnected { get; }
         void Shutdown();

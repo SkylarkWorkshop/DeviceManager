@@ -8,6 +8,7 @@ using System.Net;
 using System.Threading;
 using Windows.Data.Json;
 using static DeviceManager.DeviceManager;
+using DeviceManager.Model;
 
 namespace DeviceManager
 {
@@ -62,6 +63,7 @@ namespace DeviceManager
                 {
                     IsAuthed = true;
                     IsConnected= true;
+                    
                 }
                 else
                 {
@@ -69,9 +71,11 @@ namespace DeviceManager
                     {
                         IsAuthed = false;
                         IsConnected = true;
+                        
                     }
                     IsConnected = false;
                     IsAuthed = false;
+                    
                 }
                 IsReady = true;
             }
