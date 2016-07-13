@@ -47,18 +47,29 @@ namespace DeviceManager.SampleApp.Shutdown
                 await statusBar.ShowAsync();
             }
         }
-        private void shut_btn_Click(object sender, RoutedEventArgs e)
+        private async void shut_btn_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (device.IsAuthed && device.IsConnected)
+
+                var msg = new MessageDialog("Shutdown?", "Confirm");
+                msg.Commands.Add(new UICommand("Yes", command =>
                 {
-                    device.Shutdown();
-                }
-                else
+                    try
+                    {
+                        device.Shutdown();
+                    }
+                    catch
+                    {
+                        Frame.Navigate(typeof(ConfigPage));
+                    }
+                }));
+                msg.Commands.Add(new UICommand("No", command =>
                 {
-                    Frame.Navigate(typeof(ConfigPage));
-                }
+                    return;
+                }));
+                await msg.ShowAsync();
+
             }
             catch
             {
@@ -67,18 +78,29 @@ namespace DeviceManager.SampleApp.Shutdown
             
         }
 
-        private void restart_btn_Click(object sender, RoutedEventArgs e)
+        private async void restart_btn_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (device.IsAuthed && device.IsConnected)
+
+                var msg = new MessageDialog("Restart?", "Confirm");
+                msg.Commands.Add(new UICommand("Yes", command =>
                 {
-                    device.Reboot();
-                }
-                else
+                    try
+                    {
+                        device.Reboot();
+                    }
+                    catch
+                    {
+                        Frame.Navigate(typeof(ConfigPage));
+                    }
+                }));
+                msg.Commands.Add(new UICommand("No", command =>
                 {
-                    Frame.Navigate(typeof(ConfigPage));
-                }
+                    return;
+                }));
+                await msg.ShowAsync();
+
             }
             catch
             {
