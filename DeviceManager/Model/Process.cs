@@ -18,7 +18,7 @@ namespace DeviceManager.Model
         public string UserName { get; internal set; }
         public double VirtualSize { get; internal set; }
         public double WorkingSetSize { get; internal set; }
-        public string Version { get; internal set; }
+        public Version Version { get; internal set; }
         public string PackageFullName { get; internal set; }
         public string Publisher { get; internal set; }
     }

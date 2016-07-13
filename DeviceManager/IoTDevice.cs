@@ -14,6 +14,7 @@ namespace DeviceManager
     public class IoTDevice : IDevice
     {
         HttpClient client;
+        HttpClientHandler handler;
         /// <summary>
         /// Init and connect to the IoT device with the specified address.
         /// </summary>
@@ -23,7 +24,7 @@ namespace DeviceManager
             IsReady = false;
             Address = addr;
             IsAuthed = false;
-            HttpClientHandler handler = new HttpClientHandler();
+            handler = new HttpClientHandler();
             handler.AllowAutoRedirect = false;
             client = new HttpClient(handler);
             client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36");
@@ -65,13 +66,17 @@ namespace DeviceManager
                 }
                 else
                 {
-                    if (res.StatusCode == HttpStatusCode.RedirectKeepVerb)
+                    if (res.StatusCode == HttpStatusCode.Unauthorized)
                     {
                         IsAuthed = false;
                         IsConnected = true;
                     }
-                    IsConnected = false;
-                    IsAuthed = false;
+                    else
+                    {
+                        IsAuthed = false;
+                        IsConnected = false;
+                    }
+
                 }
                 IsReady = true;
             }
@@ -144,8 +149,11 @@ namespace DeviceManager
         {
             try
             {
-
-                var res = await client.PostAsync(new Uri("http://" + Address + $"/api/authorize/pair?pin={credential.Pin}&persistent={credential.Persistent}"), null);
+                client = new HttpClient(new HttpClientHandler() { AllowAutoRedirect = false, Credentials = new NetworkCredential(credential.UserName,credential.Pin) });
+                client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36");
+                client.Timeout = TimeSpan.FromSeconds(10);
+                var res = await client.GetAsync(new Uri("http://" + Address + "/default.htm"));
+                
                 if (res.IsSuccessStatusCode == true)
                 {
                     IsAuthed = true;
@@ -179,7 +187,7 @@ namespace DeviceManager
                     jarr.ToList().ForEach(i =>
                     {
                         var o = i.GetObject();
-                        processes.Add(new Process() { CPUUsage = o["CPUUsage"].GetNumber(), ImageName = o["ImageName"].GetString(), PageFileUsage = o["PageFileUsage"].GetNumber(), PrivateWorkingSet = o["PrivateWorkingSet"].GetNumber(), ProcessId = o["PrivateWorkingSet"].GetNumber(), SessionId = o["SessionId"].GetNumber(), UserName = o["UserName"].GetString(), VirtualSize = o["VirtualSize"].GetNumber(), WorkingSetSize = o["WorkingSetSize"].GetNumber(), Version = o.ContainsKey("Version") ? o["Version"].GetString() : "", PackageFullName = o.ContainsKey("PackageFullName") ? o["PackageFullName"].GetString() : "", Publisher = o.ContainsKey("Publisher") ? o["Publisher"].GetString() : "", TotalCommit = o.ContainsKey("TotalCommit") ? o["TotalCommit"].GetNumber() : -1 });
+                        processes.Add(new Process() { CPUUsage = o.ContainsKey("CPUUsage") ? o["CPUUsage"].GetNumber() : 0, ImageName = o.ContainsKey("ImageName") ? o["ImageName"].GetString() : "", PageFileUsage = o.ContainsKey("PageFileUsage") ? o["PageFileUsage"].GetNumber() : 0, PrivateWorkingSet = o.ContainsKey("PrivateWorkingSet") ? o["PrivateWorkingSet"].GetNumber() : 0, ProcessId = o.ContainsKey("ProcessId") ? o["ProcessId"].GetNumber() : 0, SessionId = o.ContainsKey("SessionId") ? o["SessionId"].GetNumber() : 0, UserName = o.ContainsKey("UserName") ? o["UserName"].GetString() : "", VirtualSize = o.ContainsKey("VirtualSize") ? o["VirtualSize"].GetNumber() : 0, WorkingSetSize = o.ContainsKey("WorkingSetSize") ? o["WorkingSetSize"].GetNumber() : 0, Version = o.ContainsKey("Version") ? new Version(Convert.ToInt32(o["Version"].GetObject()["Major"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Minor"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Build"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Revision"].GetNumber())) : null, PackageFullName = o.ContainsKey("PackageFullName") ? o["PackageFullName"].GetString() : "", Publisher = o.ContainsKey("Publisher") ? o["Publisher"].GetString() : "", TotalCommit = o.ContainsKey("TotalCommit") ? o["TotalCommit"].GetNumber() : -1 });
                     });
                     return processes;
                 }

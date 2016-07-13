@@ -14,12 +14,12 @@ namespace DeviceManager
         /// <returns></returns>
         public static IoTDevice ConnectLocal()
         {
-            return new IoTDevice("127.0.0.1");
+            return new IoTDevice("127.0.0.1:8080");
         }
         /// <summary>
         /// Connect to a remote device
         /// <para>
-        /// Capability "Proximity" required
+        /// Capability "Proximity" required. Port '8080' should be added to the end of the address
         /// </para>
         /// </summary>
         /// <returns></returns>

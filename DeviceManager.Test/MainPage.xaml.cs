@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using DeviceManager;
 using System.Diagnostics;
+using System.Threading.Tasks;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace DeviceManager.Test
@@ -27,18 +28,19 @@ namespace DeviceManager.Test
         {
             this.InitializeComponent();
         }
-        MobileDevice device;
+        IoTDevice device;
         private void conn_btn_Click(object sender, RoutedEventArgs e)
         {
-            device=MobileDeviceManager.ConnectLocal();
+            device=IoTDeviceManager.ConnectRemote("10.0.0.10:8080");
         }
 
         private async void shut_btn_Click(object sender, RoutedEventArgs e)
         {
             if (device.IsAuthed == false)
             {
-                device.Auth(new ConnectCredential() { Pin = pin_tbx.Text });
+                device.Auth(new ConnectCredential() { UserName="Administrator",Pin="gao20011106" });
             }
+            await Task.Delay(100);
             var list=await device.GetProcessesInfo();
             foreach(var i in list)
             {

@@ -73,9 +73,12 @@ namespace DeviceManager
                         IsConnected = true;
                         
                     }
-                    IsConnected = false;
-                    IsAuthed = false;
-                    
+                    else
+                    {
+                        IsAuthed = false;
+                        IsConnected = false;
+                    }
+
                 }
                 IsReady = true;
             }
@@ -183,7 +186,7 @@ namespace DeviceManager
                     jarr.ToList().ForEach(i =>
                     {
                         var o = i.GetObject();
-                        processes.Add(new Process() { CPUUsage = o["CPUUsage"].GetNumber(), ImageName = o["ImageName"].GetString(), PageFileUsage = o["PageFileUsage"].GetNumber(), PrivateWorkingSet = o["PrivateWorkingSet"].GetNumber(),ProcessId= o["PrivateWorkingSet"].GetNumber(),SessionId=o["SessionId"].GetNumber(),UserName=o["UserName"].GetString(),VirtualSize=o["VirtualSize"].GetNumber(),WorkingSetSize=o["WorkingSetSize"].GetNumber(),Version= o.ContainsKey("Version")?o["Version"].GetString():"",PackageFullName=o.ContainsKey("PackageFullName")?o["PackageFullName"].GetString():"",Publisher=o.ContainsKey("Publisher")?o["Publisher"].GetString():"",TotalCommit=o.ContainsKey("TotalCommit")?o["TotalCommit"].GetNumber():-1 });                        
+                        processes.Add(new Process() { CPUUsage = o.ContainsKey("CPUUsage") ? o["CPUUsage"].GetNumber() : 0, ImageName = o.ContainsKey("ImageName") ? o["ImageName"].GetString() : "", PageFileUsage = o.ContainsKey("PageFileUsage") ? o["PageFileUsage"].GetNumber() : 0, PrivateWorkingSet = o.ContainsKey("PrivateWorkingSet") ? o["PrivateWorkingSet"].GetNumber() : 0, ProcessId = o.ContainsKey("ProcessId") ? o["ProcessId"].GetNumber() : 0, SessionId = o.ContainsKey("SessionId") ? o["SessionId"].GetNumber() : 0, UserName = o.ContainsKey("UserName") ? o["UserName"].GetString() : "", VirtualSize = o.ContainsKey("VirtualSize") ? o["VirtualSize"].GetNumber() : 0, WorkingSetSize = o.ContainsKey("WorkingSetSize") ? o["WorkingSetSize"].GetNumber() : 0, Version = o.ContainsKey("Version") ? new Version(Convert.ToInt32(o["Version"].GetObject()["Major"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Minor"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Build"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Revision"].GetNumber())) : null, PackageFullName = o.ContainsKey("PackageFullName") ? o["PackageFullName"].GetString() : "", Publisher = o.ContainsKey("Publisher") ? o["Publisher"].GetString() : "", TotalCommit = o.ContainsKey("TotalCommit") ? o["TotalCommit"].GetNumber() : -1 });
                     });
                     return processes;
                 }
