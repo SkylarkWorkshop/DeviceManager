@@ -110,6 +110,7 @@
     <None Include="a.json" />
     <Compile Include="Model\AppxPackage.cs" />
     <Compile Include="ConnectCredential.cs" />
+    <Compile Include="Model\ConnectedDevice.cs" />
     <Compile Include="Model\DeviceManager.cs" />
     <Compile Include="HoloLensDevice.cs" />
     <Compile Include="HoloLensDeviceManager.cs" />
@@ -118,8 +119,11 @@
     <Compile Include="IoTDeviceManager.cs" />
     <Compile Include="MobileDeviceManager.cs" />
     <Compile Include="MobileDevice.cs" />
+    <Compile Include="Model\IPConfiguration.cs" />
     <Compile Include="Model\NetworkProfile.cs" />
+    <Compile Include="Model\OSInfo.cs" />
     <Compile Include="Model\Process.cs" />
+    <Compile Include="Model\WifiNetwork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\SystemPerf.cs" />
     <Compile Include="XboxDevice.cs" />
