@@ -68,7 +68,7 @@ namespace DeviceManager.SampleApp.Shutdown
                     }
                     else
                     {
-                        device.Shutdown();
+                        Frame.Navigate(typeof(StartPage));
                     }
                 }
             }

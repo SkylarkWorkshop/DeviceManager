@@ -120,7 +120,6 @@
     <Compile Include="MobileDeviceManager.cs" />
     <Compile Include="MobileDevice.cs" />
     <Compile Include="Model\IPConfiguration.cs" />
-    <Compile Include="Model\NetworkProfile.cs" />
     <Compile Include="Model\OSInfo.cs" />
     <Compile Include="Model\Process.cs" />
     <Compile Include="Model\WifiNetwork.cs" />
