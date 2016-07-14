@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DeviceManager.Model;
+using Windows.Data.Json;
+using System.Net.Http;
 
 namespace DeviceManager.Manager
 {
