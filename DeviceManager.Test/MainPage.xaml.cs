@@ -28,10 +28,10 @@ namespace DeviceManager.Test
         {
             this.InitializeComponent();
         }
-        IoTDevice device;
+        MobileDevice device;
         private void conn_btn_Click(object sender, RoutedEventArgs e)
         {
-            device=IoTDeviceManager.ConnectRemote("10.0.0.10:8080");
+            device=MobileDeviceManager.ConnectLocal();
         }
 
         private async void shut_btn_Click(object sender, RoutedEventArgs e)
@@ -41,7 +41,7 @@ namespace DeviceManager.Test
                 device.Auth(new ConnectCredential() { UserName="Administrator",Pin="gao20011106" });
             }
             await Task.Delay(100);
-            var list=await device.GetProcessesInfo();
+            var list=await device.GetProcessesInfoAsync();
             foreach(var i in list)
             {
                 Debug.WriteLine(i.ImageName);

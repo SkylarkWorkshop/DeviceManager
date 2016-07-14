@@ -108,6 +108,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="a.json" />
+    <Compile Include="Manager\AppsManager.cs" />
+    <Compile Include="Manager\ProcessManager.cs" />
     <Compile Include="Model\AppxPackage.cs" />
     <Compile Include="ConnectCredential.cs" />
     <Compile Include="Model\ConnectedDevice.cs" />
@@ -129,9 +131,7 @@
     <Compile Include="XboxDeviceManager.cs" />
     <EmbeddedResource Include="Properties\DeviceManager.rd.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Manager\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

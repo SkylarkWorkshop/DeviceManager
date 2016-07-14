@@ -16,6 +16,7 @@ namespace DeviceManager
         bool IsConnected { get; }
         void Shutdown();
         void Reboot();
-        Task<IList<Process>> GetProcessesInfo();
+        Task<IList<Process>> GetProcessesInfoAsync();
+        Task<IList<AppxPackage>> GetAppsInfoAsync();
     }
 }

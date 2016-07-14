@@ -50,7 +50,12 @@ namespace DeviceManager
             }
         }
 
-        public Task<IList<Process>> GetProcessesInfo()
+        public Task<IList<AppxPackage>> GetAppsInfoAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IList<Process>> GetProcessesInfoAsync()
         {
             throw new NotImplementedException();
         }
