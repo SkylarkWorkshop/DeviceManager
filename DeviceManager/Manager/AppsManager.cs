@@ -50,5 +50,9 @@ namespace DeviceManager.Manager
                 throw new DeviceConnectionException("Not connected");
             }
         }
+        public static async void DeployAppAsync(HttpClient client,string addr,AppxPackage app)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

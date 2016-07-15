@@ -109,10 +109,11 @@
   <ItemGroup>
     <None Include="a.json" />
     <Compile Include="Manager\AppsManager.cs" />
+    <Compile Include="Manager\HardwareDeviceManager.cs" />
     <Compile Include="Manager\ProcessManager.cs" />
     <Compile Include="Model\AppxPackage.cs" />
     <Compile Include="ConnectCredential.cs" />
-    <Compile Include="Model\ConnectedDevice.cs" />
+    <Compile Include="Model\HardwareDevice.cs" />
     <Compile Include="Model\DeviceManager.cs" />
     <Compile Include="HoloLensDevice.cs" />
     <Compile Include="HoloLensDeviceManager.cs" />

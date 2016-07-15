@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
 
 namespace DeviceManager.Model
 {
@@ -14,5 +15,6 @@ namespace DeviceManager.Model
         public string PackageFullName { get; set; }
         public int PackageOrigin { get; set; }
         public string PackageRelativeId { get; set; }
+        public StorageFile PackageFile { get; set; }
     }
 }

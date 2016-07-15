@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DeviceManager.Model
 {
-    public class ConnectedDevice
+    public class HardwareDevice
     {
         public string Class { get; set; }
         public string Description { get; set; }
