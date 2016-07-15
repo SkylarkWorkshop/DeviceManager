@@ -12,15 +12,6 @@ namespace DeviceManager.Manager
 {
     class ProcessManager
     {
-        HttpClient client;
-        public string Address
-        {
-            get; set;
-        }
-        public bool IsConnected
-        {
-            get; set;
-        }
         public static async Task<IList<Process>> GetProcessesInfoForIoTDeviceAsync(HttpClient client,string addr)
         {
             var res = await client.GetAsync(new Uri("http://" + addr + $"/api/resourcemanager/processes"));
@@ -64,7 +55,7 @@ namespace DeviceManager.Manager
             }
         }
         [Obsolete("Use GetProcessesInfoForMobileDeviceAsync or GetProcessesInfoForIoTDeviceAsync instead. This method will soon be removed.")]
-        public async Task<IList<Process>> GetProcessesInfoAsync()
+        /*public async Task<IList<Process>> GetProcessesInfoAsync()
         {
             HttpClientHandler handler = new HttpClientHandler();
             handler.AllowAutoRedirect = false;
@@ -97,5 +88,5 @@ namespace DeviceManager.Manager
                 throw new DeviceConnectionException("Not connected");
             }
         }
-    }
+    }*/
 }
