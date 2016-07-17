@@ -1,0 +1,903 @@
+﻿{
+  "DeviceList": [
+    {
+      "Class": "MEDIA",
+      "Description": "Null Audio Driver",
+      "ID": "ROOT\\PHONENULLAUD\\0000",
+      "Manufacturer": "Microsoft",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 32,
+      "StatusCode": 25175041
+    },
+    {
+      "Class": "SoftwareDevice",
+      "Description": "Generic software device",
+      "FriendlyName": "UICC",
+      "ID": "SWD\\SCDEVICEENUM\\0_UICC",
+      "Manufacturer": "Microsoft",
+      "ParentID": "SWD\\SCDEVICEENUMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 1098915850
+    },
+    {
+      "Class": "System",
+      "Description": "System board",
+      "ID": "ACPI\\PNP0C01\\1",
+      "Manufacturer": "(Standard system devices)",
+      "ParentID": "ACPI_HAL\\PNP0C08\\0",
+      "ProblemCode": 0,
+      "StatusCode": 1098915840
+    },
+    {
+      "Class": "System",
+      "Description": "Motherboard resources",
+      "ID": "ACPI\\PNP0C02\\1",
+      "Manufacturer": "(Standard system devices)",
+      "ParentID": "PCI\\VEN_8086&DEV_7110&SUBSYS_00001414&REV_01\\3&267A616A&0&38",
+      "ProblemCode": 0,
+      "StatusCode": 1098915840
+    },
+    {
+      "Class": "System",
+      "Description": "Motherboard resources",
+      "ID": "ACPI\\PNP0C02\\2",
+      "Manufacturer": "(Standard system devices)",
+      "ParentID": "PCI\\VEN_8086&DEV_7110&SUBSYS_00001414&REV_01\\3&267A616A&0&38",
+      "ProblemCode": 0,
+      "StatusCode": 1098915840
+    },
+    {
+      "Class": "System",
+      "Description": "System speaker",
+      "ID": "ACPI\\PNP0800\\4&215D0F95&0",
+      "Manufacturer": "(Standard system devices)",
+      "ParentID": "PCI\\VEN_8086&DEV_7110&SUBSYS_00001414&REV_01\\3&267A616A&0&38",
+      "ProblemCode": 0,
+      "StatusCode": 25174016
+    },
+    {
+      "Class": "Volume",
+      "Description": "Generic volume",
+      "ID": "STORAGE\\VOLUME\\{D47FEE97-1A7C-11E6-A69D-806E6F6E6963}#0000000000000200",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\VOLMGR\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 1098907658
+    },
+    {
+      "Class": "Sensor",
+      "Description": "Fake Combo - Ambient Light, Barometer, Gyroscope, Magnetometer and Proximity",
+      "ID": "ROOT\\UMDF2\\COMBOFAKEV2",
+      "Manufacturer": "Microsoft",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174027
+    },
+    {
+      "Class": "Net",
+      "Description": "FakeWWAN Miniport Device",
+      "FriendlyName": "FakeWWAN Miniport Device",
+      "ID": "MODEM\\FAKEWWAN\\2&23BF95B2&0&0001",
+      "Manufacturer": "Microsoft",
+      "ParentID": "MODEM\\MUX\\1&37A118AD&0&0000",
+      "ProblemCode": 0,
+      "StatusCode": 25190410
+    },
+    {
+      "Class": "System",
+      "Description": "Volume Manager",
+      "ID": "ROOT\\VOLMGR\\0000",
+      "Manufacturer": "Microsoft",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 1098907659
+    },
+    {
+      "Class": "MEDIA",
+      "Description": "Null Audio Driver",
+      "ID": "ROOT\\NULLAUD\\0000",
+      "Manufacturer": "NullMfg",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174027
+    },
+    {
+      "Class": "Proximity",
+      "Description": "NFC Simulator Driver",
+      "ID": "ROOT\\NFCSIMULATOR\\0000",
+      "Manufacturer": "TODO-Set-Manufacturer",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174027
+    },
+    {
+      "Class": "MEDIA",
+      "Description": "Virtual Audio Device (WDM) - Phone Sample",
+      "ID": "ROOT\\SYSVAD_PHONEAUDIOSAMPLE\\0000",
+      "Manufacturer": "TODO-Set-Manufacturer",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 32,
+      "StatusCode": 25175041
+    },
+    {
+      "Class": "Mouse",
+      "Description": "Microsoft PS\/2 Mouse",
+      "ID": "ACPI\\PNP0F03\\4&215D0F95&0",
+      "Manufacturer": "Microsoft",
+      "ParentID": "PCI\\VEN_8086&DEV_7110&SUBSYS_00001414&REV_01\\3&267A616A&0&38",
+      "ProblemCode": 0,
+      "StatusCode": 25165834
+    },
+    {
+      "Class": "System",
+      "Description": "Microsoft Hyper-V Guest Shutdown",
+      "ID": "VMBUS\\{0E0B6031-5213-4934-818B-38D90CED39DB}\\{B6650FF7-33BC-4840-8048-E0676786F393}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ACPI\\VMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "System",
+      "Description": "Microsoft Hyper-V Virtual Machine Bus",
+      "ID": "ACPI\\VMBUS\\0",
+      "Manufacturer": "Microsoft",
+      "ParentID": "PCI\\VEN_8086&DEV_7110&SUBSYS_00001414&REV_01\\3&267A616A&0&38",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "AudioEndpoint",
+      "Description": "Audio Endpoint",
+      "FriendlyName": "Handset (Null Audio Driver)",
+      "ID": "SWD\\MMDEVAPI\\{0.0.1.00000000}.{0600D486-C0C8-4F7E-A5FD-75F0AD5F1D2C}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\NULLAUD\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "System",
+      "Description": "Microsoft Basic Display Driver",
+      "ID": "ROOT\\BASICDISPLAY\\0000",
+      "Manufacturer": "(Standard display types)",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 31,
+      "StatusCode": 25175041
+    },
+    {
+      "Class": "System",
+      "Description": "System timer",
+      "ID": "ACPI\\PNP0100\\4&215D0F95&0",
+      "Manufacturer": "(Standard system devices)",
+      "ParentID": "PCI\\VEN_8086&DEV_7110&SUBSYS_00001414&REV_01\\3&267A616A&0&38",
+      "ProblemCode": 0,
+      "StatusCode": 25174016
+    },
+    {
+      "Class": "Net",
+      "Description": "Microsoft Hyper-V Network Adapter",
+      "FriendlyName": "Microsoft Hyper-V Network Adapter",
+      "ID": "VMBUS\\{F8615163-DF3E-46C5-913F-F2D2F965ED0E}\\{0E811AD0-D6AB-464C-AF50-658B23C3555D}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ACPI\\VMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "Display",
+      "Description": "Microsoft Hyper-V Video",
+      "ID": "VMBUS\\{DA0A7802-E377-4AAC-8E77-0558EB1073F8}\\{5620E0C7-8062-4DCE-AEB7-520C7EF76171}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ACPI\\VMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "System",
+      "Description": "Lamp Simulation",
+      "ID": "ROOT\\LAMPSIM\\0000",
+      "Manufacturer": "Microsoft",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174027
+    },
+    {
+      "Class": "Volume",
+      "Description": "Generic volume",
+      "ID": "STORAGE\\VOLUME\\{D47FEE97-1A7C-11E6-A69D-806E6F6E6963}#0000000002A00200",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\VOLMGR\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 1098915850
+    },
+    {
+      "Class": "hdc",
+      "Description": "IDE Channel",
+      "FriendlyName": "ATA Channel 0",
+      "ID": "PCIIDE\\IDECHANNEL\\4&10BF2F88&0&0",
+      "Manufacturer": "(Standard IDE ATA\/ATAPI controllers)",
+      "ParentID": "PCI\\VEN_8086&DEV_7111&SUBSYS_00000000&REV_01\\3&267A616A&0&39",
+      "ProblemCode": 0,
+      "StatusCode": 25165834
+    },
+    {
+      "Class": "hdc",
+      "Description": "IDE Channel",
+      "FriendlyName": "ATA Channel 1",
+      "ID": "PCIIDE\\IDECHANNEL\\4&10BF2F88&0&1",
+      "Manufacturer": "(Standard IDE ATA\/ATAPI controllers)",
+      "ParentID": "PCI\\VEN_8086&DEV_7111&SUBSYS_00000000&REV_01\\3&267A616A&0&39",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "Sensor",
+      "Description": "Sensor Fusion Client Driver",
+      "ID": "ROOT\\UMDF2\\FUSIONV2",
+      "Manufacturer": "Microsoft",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174027
+    },
+    {
+      "Class": "System",
+      "Description": "Fake Charging Source Client Driver",
+      "ID": "ROOT\\FAKECHARGINGSOURCE\\0000",
+      "Manufacturer": "@FakeChargingSource.inf,%StdMfg%",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174027
+    },
+    {
+      "Class": "Monitor",
+      "Description": "Generic Non-PnP Monitor",
+      "ID": "DISPLAY\\DEFAULT_MONITOR\\6&1A097CD8&0&UID5527112",
+      "Manufacturer": "(Standard monitor types)",
+      "ParentID": "VMBUS\\{DA0A7802-E377-4AAC-8E77-0558EB1073F8}\\{5620E0C7-8062-4DCE-AEB7-520C7EF76171}",
+      "ProblemCode": 0,
+      "StatusCode": 25190410
+    },
+    {
+      "Class": "System",
+      "Description": "MSFT Radio Interface Layer - provides many to one relationship between apps and a driver instance",
+      "ID": "MODEM\\MUX\\1&37A118AD&0&0000",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\CELLUSERMODEINTERCONNECT\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 25190410
+    },
+    {
+      "Class": "MEDIA",
+      "Description": "Soc Capture Simulated Hardware",
+      "ID": "ROOT\\SOCCAPTURESIM\\0000",
+      "Manufacturer": "Microsoft",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174027
+    },
+    {
+      "Class": "System",
+      "Description": "Fake Gnss Driver",
+      "ID": "ROOT\\FAKEGNSS\\0000",
+      "Manufacturer": "Microsoft",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174027
+    },
+    {
+      "Class": "Ports",
+      "Description": "Communications Port",
+      "ID": "ACPI\\PNP0501\\1",
+      "Manufacturer": "(Standard port types)",
+      "ParentID": "PCI\\VEN_8086&DEV_7110&SUBSYS_00001414&REV_01\\3&267A616A&0&38",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "Ports",
+      "Description": "Communications Port",
+      "ID": "ACPI\\PNP0501\\2",
+      "Manufacturer": "(Standard port types)",
+      "ParentID": "PCI\\VEN_8086&DEV_7110&SUBSYS_00001414&REV_01\\3&267A616A&0&38",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "DiskDrive",
+      "Description": "Microsoft Hyper-V Accelerated Disk Drive",
+      "FriendlyName": "Virtual HD ATA Device",
+      "ID": "IDE\\DISKVIRTUAL_HD______________________________1.1.0___\\5&35DC7040&0&0.0.0",
+      "Manufacturer": "Microsoft",
+      "ParentID": "PCIIDE\\IDECHANNEL\\4&10BF2F88&0&0",
+      "ProblemCode": 0,
+      "StatusCode": 25165834
+    },
+    {
+      "Class": "Volume",
+      "Description": "Generic volume",
+      "ID": "STORAGE\\VOLUME\\{D47FEE97-1A7C-11E6-A69D-806E6F6E6963}#00000000B7520200",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\VOLMGR\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 1098915850
+    },
+    {
+      "Class": "hdc",
+      "Description": "Intel(R) 82371AB\/EB PCI Bus Master IDE Controller",
+      "ID": "PCI\\VEN_8086&DEV_7111&SUBSYS_00000000&REV_01\\3&267A616A&0&39",
+      "Manufacturer": "Intel",
+      "ParentID": "ACPI\\PNP0A03\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25165834
+    },
+    {
+      "Class": "Keyboard",
+      "Description": "Microsoft Hyper-V Virtual Keyboard",
+      "ID": "VMBUS\\{F912AD6D-2B17-48EA-BD65-F927A61C7684}\\{D34B2567-B9B6-42B9-8778-0A4EC0B955BF}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ACPI\\VMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "System",
+      "Description": "PCI to ISA Bridge",
+      "ID": "PCI\\VEN_8086&DEV_7110&SUBSYS_00001414&REV_01\\3&267A616A&0&38",
+      "Manufacturer": "Intel",
+      "ParentID": "ACPI\\PNP0A03\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25165834
+    },
+    {
+      "Class": "Sensor",
+      "Description": "Sensor Fusion Client Driver",
+      "ID": "ROOT\\FUSION\\0000",
+      "Manufacturer": "@Fusion.inf,%StdMfg%",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 24,
+      "StatusCode": 25175041
+    },
+    {
+      "Class": "System",
+      "Description": "AVStream NullCam",
+      "ID": "ROOT\\NULLCAM\\0000",
+      "Manufacturer": "Microsoft",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174027
+    },
+    {
+      "Class": "Net",
+      "Description": "Microsoft WPSwitch Virtual Adapter",
+      "FriendlyName": "Microsoft WPSwitch Virtual Adapter",
+      "ID": "WPSBUS\\MINIPORTS\\1&1424D9E9&0&{00000000-0000-0000-0000-000000000000}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\WPSBUS\\0000",
+      "ProblemCode": 43,
+      "StatusCode": 25175040
+    },
+    {
+      "Class": "System",
+      "Description": "Charging Arbitration Driver",
+      "ID": "ROOT\\CAD\\0000",
+      "Manufacturer": "@ChargingArbitration.inf,%StdMfg%",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174027
+    },
+    {
+      "Class": "AudioEndpoint",
+      "Description": "Audio Endpoint",
+      "FriendlyName": "Speakers (Null Audio Driver)",
+      "ID": "SWD\\MMDEVAPI\\{0.0.0.00000000}.{84E90599-72A8-437C-B8AE-2EB97E3B6D12}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\NULLAUD\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "System",
+      "Description": "Cell Modem Queue that responds to Read\/Write IRPs",
+      "ID": "MODEM\\MSRIL\\2&23BF95B2&0&0001",
+      "Manufacturer": "Microsoft",
+      "ParentID": "MODEM\\MUX\\1&37A118AD&0&0000",
+      "ProblemCode": 0,
+      "StatusCode": 25190410
+    },
+    {
+      "ID": "ACPI\\PNP0700\\4&215D0F95&0",
+      "ParentID": "PCI\\VEN_8086&DEV_7110&SUBSYS_00001414&REV_01\\3&267A616A&0&38",
+      "ProblemCode": 28,
+      "StatusCode": 25175040
+    },
+    {
+      "Class": "System",
+      "Description": "Microsoft Hyper-V Time Synchronization",
+      "ID": "VMBUS\\{9527E630-D0AE-497B-ADCE-E80AB0175CAF}\\{2DD1CE17-079E-403C-B352-A1921EE207EE}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ACPI\\VMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "Computer",
+      "Description": "ACPI x86-based PC",
+      "ID": "ROOT\\ACPI_HAL\\0000",
+      "Manufacturer": "(Standard computers)",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25165835
+    },
+    {
+      "Class": "Mouse",
+      "Description": "HID-compliant mouse",
+      "ID": "HID\\{CFA8B69E-5B4A-4CC0-B98B-8BA1A1F3F95A}\\6&1A8C06AF&0&0000",
+      "Manufacturer": "Microsoft",
+      "ParentID": "VMBUS\\{CFA8B69E-5B4A-4CC0-B98B-8BA1A1F3F95A}\\{58F75A6D-D949-4320-99E1-A2A2576D581C}",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "Volume",
+      "Description": "Generic volume",
+      "ID": "STORAGE\\VOLUME\\{D47FEE97-1A7C-11E6-A69D-806E6F6E6963}#0000000147530200",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\VOLMGR\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 1098915850
+    },
+    {
+      "Class": "System",
+      "Description": "PCI Bus",
+      "ID": "ACPI\\PNP0A03\\0",
+      "Manufacturer": "(Standard system devices)",
+      "ParentID": "ACPI_HAL\\PNP0C08\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25165834
+    },
+    {
+      "Class": "USBFunctionController",
+      "Description": "Fake UsbFn Controller Driver",
+      "ID": "ROOT\\UFXFAKE\\0000",
+      "Manufacturer": "Microsoft",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174027
+    },
+    {
+      "Class": "Volume",
+      "Description": "Generic volume",
+      "ID": "STORAGE\\VOLUME\\{D47FEE97-1A7C-11E6-A69D-806E6F6E6963}#0000000002B10200",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\VOLMGR\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 1098907658
+    },
+    {
+      "Class": "System",
+      "Description": "Microsoft ACPI-Compliant System",
+      "ID": "ACPI_HAL\\PNP0C08\\0",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\ACPI_HAL\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 25165834
+    },
+    {
+      "ID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 1098907658
+    },
+    {
+      "Class": "System",
+      "Description": "System CMOS\/real time clock",
+      "ID": "ACPI\\PNP0B00\\4&215D0F95&0",
+      "Manufacturer": "(Standard system devices)",
+      "ParentID": "PCI\\VEN_8086&DEV_7110&SUBSYS_00001414&REV_01\\3&267A616A&0&38",
+      "ProblemCode": 0,
+      "StatusCode": 25165834
+    },
+    {
+      "Class": "System",
+      "Description": "Microsoft Basic Render Driver",
+      "ID": "ROOT\\BASICRENDER\\0000",
+      "Manufacturer": "Microsoft",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 1098907659
+    },
+    {
+      "Class": "SoftwareDevice",
+      "Description": "Generic software device",
+      "FriendlyName": "SMS_DEVICE2_{A9FCA3F6-1631-46E2-ACC1-7B3B592EC199}",
+      "ID": "SWD\\SMSDEVICE\\SMS_DEVICE2_{A9FCA3F6-1631-46E2-ACC1-7B3B592EC199}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "MODEM\\FAKEWWAN\\2&23BF95B2&0&0001",
+      "ProblemCode": 0,
+      "StatusCode": 1098932234
+    },
+    {
+      "ID": "VMBUS\\{F8E65716-3CB3-4A06-9A60-1889C5CCCAB5}\\{99221FA0-24AD-11E2-BE98-001AA01BBF6E}",
+      "ParentID": "ACPI\\VMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "Net",
+      "Description": "Microsoft Hyper-V Network Adapter",
+      "FriendlyName": "Microsoft Hyper-V Network Adapter #2",
+      "ID": "VMBUS\\{F8615163-DF3E-46C5-913F-F2D2F965ED0E}\\{1A9B0406-0747-47FD-A357-86A20C485FB1}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ACPI\\VMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "SoftwareDevice",
+      "Description": "Generic software device",
+      "FriendlyName": "VSC Device Enumeration Bus",
+      "ID": "SWD\\VSCDEVICEENUMBUS\\0",
+      "Manufacturer": "Microsoft",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 1098915850
+    },
+    {
+      "Class": "System",
+      "Description": "Programmable interrupt controller",
+      "ID": "ACPI\\PNP0000\\4&215D0F95&0",
+      "Manufacturer": "(Standard system devices)",
+      "ParentID": "PCI\\VEN_8086&DEV_7110&SUBSYS_00001414&REV_01\\3&267A616A&0&38",
+      "ProblemCode": 0,
+      "StatusCode": 25174016
+    },
+    {
+      "Class": "Keyboard",
+      "Description": "Standard PS\/2 Keyboard",
+      "ID": "ACPI\\PNP0303\\4&215D0F95&0",
+      "Manufacturer": "(Standard keyboards)",
+      "ParentID": "PCI\\VEN_8086&DEV_7110&SUBSYS_00001414&REV_01\\3&267A616A&0&38",
+      "ProblemCode": 0,
+      "StatusCode": 25165834
+    },
+    {
+      "Class": "System",
+      "Description": "ACPI Fixed Feature Button",
+      "ID": "ACPI\\FIXEDBUTTON\\2&DABA3FF&0",
+      "Manufacturer": "(Standard system devices)",
+      "ParentID": "ACPI_HAL\\PNP0C08\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25165834
+    },
+    {
+      "Class": "AudioEndpoint",
+      "Description": "Audio Endpoint",
+      "FriendlyName": "Microphone (Null Audio Driver)",
+      "ID": "SWD\\MMDEVAPI\\{0.0.1.00000000}.{4D3C8339-76C7-4856-86D0-77DC1F2937C0}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\NULLAUD\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "HIDClass",
+      "Description": "Microsoft Virtual Machine Bus Input Device Miniport",
+      "ID": "VMBUS\\{CFA8B69E-5B4A-4CC0-B98B-8BA1A1F3F95A}\\{58F75A6D-D949-4320-99E1-A2A2576D581C}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ACPI\\VMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "SoftwareDevice",
+      "Description": "Generic software device",
+      "FriendlyName": "Windows.Networking.NetworkOperators.MobileBroadbandAccount",
+      "ID": "SWD\\MBAE\\{40C8FD6C-CF46-4B63-9985-AF8F0031C354}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "MODEM\\FAKEWWAN\\2&23BF95B2&0&0001",
+      "ProblemCode": 0,
+      "StatusCode": 1098932234
+    },
+    {
+      "Class": "System",
+      "Description": "Microsoft Hyper-V Dynamic Memory",
+      "ID": "VMBUS\\{525074DC-8985-46E2-8057-A307DC18A502}\\{1ECCFD72-4B41-45EF-B73A-4A6E44C12924}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ACPI\\VMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "Net",
+      "Description": "Microsoft Hyper-V Network Adapter",
+      "FriendlyName": "Microsoft Hyper-V Network Adapter #3",
+      "ID": "VMBUS\\{F8615163-DF3E-46C5-913F-F2D2F965ED0E}\\{7199125C-29DC-4D25-8D91-3D078324D3E2}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ACPI\\VMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "Net",
+      "Description": "Microsoft WPSwitch Virtual Adapter",
+      "FriendlyName": "Microsoft WPSwitch Virtual Adapter #9",
+      "ID": "WPSBUS\\MINIPORTS\\1&1424D9E9&0&{E46E04C0-3507-11E6-A69F-806E6F6E6963}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\WPSBUS\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "Volume",
+      "Description": "Generic volume",
+      "ID": "STORAGE\\VOLUME\\{D47FEE99-1A7C-11E6-A69D-806E6F6E6963}#0000000000100000",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\VOLMGR\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 1098915850
+    },
+    {
+      "Class": "System",
+      "Description": "Direct memory access controller",
+      "ID": "ACPI\\PNP0200\\4&215D0F95&0",
+      "Manufacturer": "(Standard system devices)",
+      "ParentID": "PCI\\VEN_8086&DEV_7110&SUBSYS_00001414&REV_01\\3&267A616A&0&38",
+      "ProblemCode": 0,
+      "StatusCode": 25174016
+    },
+    {
+      "Class": "Volume",
+      "Description": "Generic volume",
+      "ID": "STORAGE\\VOLUME\\{D47FEE97-1A7C-11E6-A69D-806E6F6E6963}#0000000002000200",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\VOLMGR\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 1098915850
+    },
+    {
+      "Class": "Net",
+      "Description": "Microsoft Hyper-V Network Adapter",
+      "FriendlyName": "Microsoft Hyper-V Network Adapter #4",
+      "ID": "VMBUS\\{F8615163-DF3E-46C5-913F-F2D2F965ED0E}\\{FD77BEB9-DC36-4C36-9D6F-611ED231B905}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ACPI\\VMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "Net",
+      "Description": "Microsoft WPSwitch Virtual Adapter",
+      "FriendlyName": "Microsoft WPSwitch Virtual Adapter #6",
+      "ID": "WPSBUS\\MINIPORTS\\1&1424D9E9&0&{E46E04BA-3507-11E6-A69F-806E6F6E6963}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\WPSBUS\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "System",
+      "Description": "Microsoft Hyper-V Generation Counter",
+      "ID": "ACPI\\HYPER_V_GEN_COUNTER_V1\\0",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ACPI_HAL\\PNP0C08\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25165834
+    },
+    {
+      "Class": "SoftwareDevice",
+      "Description": "Generic software device",
+      "FriendlyName": "Microsoft GS Wavetable Synth",
+      "ID": "SWD\\MMDEVAPI\\MICROSOFTGSWAVETABLESYNTH",
+      "Manufacturer": "Microsoft",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "System",
+      "Description": "Charging filter Driver",
+      "ID": "ROOT\\BATTFLTR\\0000",
+      "Manufacturer": "@BattFltr.inf,%StdMfg%",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174027
+    },
+    {
+      "Class": "System",
+      "Description": "Microsoft WPSwitch Bus Driver",
+      "ID": "ROOT\\WPSBUS\\0000",
+      "Manufacturer": "Microsoft",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174027
+    },
+    {
+      "Class": "SoftwareDevice",
+      "Description": "Generic software device",
+      "FriendlyName": "Smart Card Device Enumeration Bus",
+      "ID": "SWD\\SCDEVICEENUMBUS\\0",
+      "Manufacturer": "Microsoft",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 1098915850
+    },
+    {
+      "Class": "Net",
+      "Description": "Microsoft WPSwitch Virtual Adapter",
+      "FriendlyName": "Microsoft WPSwitch Virtual Adapter #7",
+      "ID": "WPSBUS\\MINIPORTS\\1&1424D9E9&0&{E46E04BC-3507-11E6-A69F-806E6F6E6963}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\WPSBUS\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "AudioEndpoint",
+      "Description": "Audio Endpoint",
+      "FriendlyName": "Handset (Null Audio Driver)",
+      "ID": "SWD\\MMDEVAPI\\{0.0.0.00000000}.{2F0CFB73-0F92-45F8-BBAC-73AB1C8CCF56}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\NULLAUD\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "Battery",
+      "Description": "Fake Batt Client Driver",
+      "ID": "ROOT\\FAKEBATT\\0000",
+      "Manufacturer": "@FakeBatt.inf,%StdMfg%",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174027
+    },
+    {
+      "Class": "Processor",
+      "Description": "Intel Processor",
+      "FriendlyName": "Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz",
+      "ID": "ACPI\\GENUINEINTEL_-_X86_FAMILY_6_MODEL_60_-_INTEL(R)_CORE(TM)_I7-4770_CPU_@_3.40GHZ\\_1",
+      "Manufacturer": "Intel",
+      "ParentID": "ACPI_HAL\\PNP0C08\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25165834
+    },
+    {
+      "Class": "Processor",
+      "Description": "Intel Processor",
+      "FriendlyName": "Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz",
+      "ID": "ACPI\\GENUINEINTEL_-_X86_FAMILY_6_MODEL_60_-_INTEL(R)_CORE(TM)_I7-4770_CPU_@_3.40GHZ\\_2",
+      "Manufacturer": "Intel",
+      "ParentID": "ACPI_HAL\\PNP0C08\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25165834
+    },
+    {
+      "Class": "System",
+      "Description": "Microsoft Hyper-V S3 Cap",
+      "ID": "PCI\\VEN_1414&DEV_5353&SUBSYS_00000000&REV_00\\3&267A616A&0&40",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ACPI\\PNP0A03\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "Volume",
+      "Description": "Generic volume",
+      "ID": "STORAGE\\VOLUME\\{D47FEE97-1A7C-11E6-A69D-806E6F6E6963}#0000000147640200",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\VOLMGR\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 1098907658
+    },
+    {
+      "Class": "Net",
+      "Description": "Microsoft WPSwitch Virtual Adapter",
+      "FriendlyName": "Microsoft WPSwitch Virtual Adapter #8",
+      "ID": "WPSBUS\\MINIPORTS\\1&1424D9E9&0&{E46E04BE-3507-11E6-A69F-806E6F6E6963}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ROOT\\WPSBUS\\0000",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "System",
+      "Description": "MSFT Usermode Cellular interconnect - links RILAdaptationService to the EMB stack",
+      "ID": "ROOT\\CELLUSERMODEINTERCONNECT\\0000",
+      "Manufacturer": "Microsoft",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174027
+    },
+    {
+      "Class": "DiskDrive",
+      "Description": "Microsoft Hyper-V Accelerated Disk Drive",
+      "FriendlyName": "Virtual HD ATA Device",
+      "ID": "IDE\\DISKVIRTUAL_HD______________________________1.1.1___\\5&CFB56DE&0&1.1.0",
+      "Manufacturer": "Microsoft",
+      "ParentID": "PCIIDE\\IDECHANNEL\\4&10BF2F88&0&1",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "Sensor",
+      "Description": "Sensor Accelerometer Client Driver (Fake)",
+      "ID": "ROOT\\UMDF2\\ACCFAKEV2",
+      "Manufacturer": "Microsoft",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174027
+    },
+    {
+      "Class": "System",
+      "Description": "Microsoft Hyper-V Heartbeat",
+      "ID": "VMBUS\\{57164F39-9115-4E78-AB55-382F3BD5422D}\\{FD149E91-82E0-4A7D-AFA6-2A4166CBD7C0}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ACPI\\VMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "System",
+      "Description": "CPU to PCI Bridge",
+      "ID": "PCI\\VEN_8086&DEV_7192&SUBSYS_00000000&REV_03\\3&267A616A&0&00",
+      "Manufacturer": "Intel",
+      "ParentID": "ACPI\\PNP0A03\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25165834
+    },
+    {
+      "Class": "System",
+      "Description": "Microsoft Fake Vibra HWN Client Driver",
+      "ID": "ROOT\\FAKEVIBRA\\0000",
+      "Manufacturer": "Microsoft",
+      "ParentID": "HTREE\\ROOT\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174027
+    },
+    {
+      "Class": "System",
+      "Description": "Microsoft Hyper-V Data Exchange",
+      "ID": "VMBUS\\{A9A0F4E7-5A45-4D96-B827-8A841E8C03E6}\\{242FF919-07DB-4180-9C2E-B86CB68C8C55}",
+      "Manufacturer": "Microsoft",
+      "ParentID": "ACPI\\VMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "System",
+      "Description": "Numeric data processor",
+      "ID": "ACPI\\PNP0C04\\4&215D0F95&0",
+      "Manufacturer": "(Standard system devices)",
+      "ParentID": "PCI\\VEN_8086&DEV_7110&SUBSYS_00001414&REV_01\\3&267A616A&0&38",
+      "ProblemCode": 0,
+      "StatusCode": 25174016
+    },
+    {
+      "ID": "VMBUS\\{35FA2E29-EA23-4236-96AE-3A6EBACBA440}\\{2450EE40-33BF-4FBD-892E-9FB06E9214CF}",
+      "ParentID": "ACPI\\VMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "Class": "SoftwareDevice",
+      "Description": "Generic software device",
+      "FriendlyName": "DefaultNFC",
+      "ID": "SWD\\SCDEVICEENUM\\0_DEFAULTNFC",
+      "Manufacturer": "Microsoft",
+      "ParentID": "SWD\\SCDEVICEENUMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 1098915850
+    },
+    {
+      "ID": "VMBUS\\{3375BAF4-9E15-4B30-B765-67ACB10D607B}\\{4487B255-B88C-403F-BB51-D1F69CF17F87}",
+      "ParentID": "ACPI\\VMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    },
+    {
+      "ID": "VMBUS\\{276AACF4-AC15-426C-98DD-7521AD3F01FE}\\{F5BEE29C-1741-4AAD-A4C2-8FDEDB46DCC2}",
+      "ParentID": "ACPI\\VMBUS\\0",
+      "ProblemCode": 0,
+      "StatusCode": 25174026
+    }
+  ]
+}
