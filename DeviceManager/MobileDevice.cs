@@ -8,11 +8,10 @@ using System.Net;
 using System.Threading;
 using Windows.Data.Json;
 using static DeviceManager.DeviceManager;
-using DeviceManager.Model;
 
 namespace DeviceManager
 {
-    public class MobileDevice : IDevice
+    public class MobileDevice
     {
         HttpClient client;
         /// <summary>
@@ -170,23 +169,6 @@ namespace DeviceManager
                 IsAuthed = false;                
             }
             
-        }
-        
-        public async Task<IList<Process>> GetProcessesInfoAsync()
-        {
-            if (IsConnected)
-            {
-                return await Manager.ProcessManager.GetProcessesInfoForMobileDeviceAsync(client, Address);
-            }
-            else
-            {
-                throw new DeviceConnectionException("Not connected");
-            }
-        }
-
-        public Task<IList<AppxPackage>> GetAppsInfoAsync()
-        {
-            throw new NotImplementedException();
         }
     }
 }

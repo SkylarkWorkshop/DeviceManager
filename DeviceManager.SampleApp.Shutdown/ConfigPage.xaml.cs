@@ -33,7 +33,7 @@ namespace DeviceManager.SampleApp.Shutdown
         public ConfigPage()
         {
             this.InitializeComponent();
-            device = DeviceManager.Connect(DeviceType.Mobile,ConnectionType.Local,"127.0.0.1") as MobileDevice;
+            device = MobileDeviceManager.ConnectLocal();
             loader = new Windows.ApplicationModel.Resources.ResourceLoader();
             SetStatusBar(Colors.Black, Colors.White);
         }
