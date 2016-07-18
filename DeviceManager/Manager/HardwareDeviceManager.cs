@@ -12,20 +12,20 @@ namespace DeviceManager.Manager
 {
     class HardwareDeviceManager
     {
-        public static async Task<IList<Devices>> GetHardwareDeviceInfo(HttpClient client,string addr)
+        public static async Task<IList<HardwareDevice>> GetHardwareDeviceInfo(HttpClient client,string addr)
         {
-            var res = await client.GetAsync(new Uri("http://" + addr + $""));
+            var res = await client.GetAsync(new Uri("http://" + addr + ""));
             var responseText = await res.Content.ReadAsStringAsync();
             if (res.IsSuccessStatusCode == true)
             {
-                List<Devices> devices = new List<Devices>();
+                List<HardwareDevice> devices = new List<HardwareDevice>();
                 JsonObject jobj = JsonObject.Parse(responseText);
                 JsonArray jarr = jobj["DeviceList"].GetArray();
                 jarr.ToList().ForEach(i =>
                 {
                     var o = i.GetObject();
                     //Class,Description,FriendlyName,ID,Manufacturer,ParentID,ProblemCode,StatusCode
-                    devices.Add(new Devices() { });
+                    devices.Add(new HardwareDevice() { });
                 });
                 return devices;
             }
