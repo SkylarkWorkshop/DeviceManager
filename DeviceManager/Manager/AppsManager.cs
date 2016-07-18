@@ -12,13 +12,13 @@ namespace DeviceManager.Manager
 {
     class AppsManager
     {
-        public static async Task<IList<Process>> GetApplicationInfo(HttpClient client,string addr)
+        public static async Task<IList<AppxPackage>> GetApplicationInfo(HttpClient client,string addr)
         {
-            var res = await client.GetAsync(new Uri("http://" + addr + $"/api/app/packagemanager/packages"));
+            var res = await client.GetAsync(new Uri("http://" + addr + "/api/app/packagemanager/packages"));
             var responseText = await res.Content.ReadAsStringAsync();
             if (res.IsSuccessStatusCode == true)
             {
-                List<Application> application = new List<Applicatoin>();
+                List<AppxPackage> application = new List<AppxPackage>();
                 JsonObject jobj = JsonObject.Parse(responseText);
                 throw new NotImplementedException();
             }
