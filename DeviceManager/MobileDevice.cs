@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net.Http;
-using System.Net;
+using Windows.Web.Http;
+using Windows.Web;
 using System.Threading;
 using Windows.Data.Json;
 using static DeviceManager.DeviceManager;
-using DeviceManager.Model;
+using Windows.Web.Http.Filters;
+using Windows.Security.Cryptography.Certificates;
 
 namespace DeviceManager
 {
-    public class MobileDevice : IDevice
+    public class MobileDevice
     {
         HttpClient client;
         /// <summary>
@@ -24,11 +25,14 @@ namespace DeviceManager
             IsReady = false;
             Address = addr;
             IsAuthed = false;
-            HttpClientHandler handler = new HttpClientHandler();
-            handler.AllowAutoRedirect = false;
-            client = new HttpClient(handler);
+            HttpBaseProtocolFilter filter = new HttpBaseProtocolFilter();
+            filter.AllowAutoRedirect = false;
+
+            filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Expired);
+            filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Untrusted);
+            filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.InvalidName);
+            client = new HttpClient(filter);
             client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36");
-            client.Timeout = TimeSpan.FromSeconds(10);
             TestConnection();      
         }
         public bool IsReady { get; private set; }
@@ -58,7 +62,7 @@ namespace DeviceManager
         {
             try
             {
-                var res=await client.GetAsync($"http://{Address}/default.htm");
+                var res=await client.GetAsync(new Uri($"https://{Address}/default.htm"));
                 if(res.IsSuccessStatusCode==true)
                 {
                     IsAuthed = true;
@@ -67,7 +71,7 @@ namespace DeviceManager
                 }
                 else
                 {
-                    if(res.StatusCode==HttpStatusCode.RedirectKeepVerb)
+                    if (res.StatusCode == HttpStatusCode.TemporaryRedirect)
                     {
                         IsAuthed = false;
                         IsConnected = true;
@@ -102,10 +106,10 @@ namespace DeviceManager
             }
             if (IsConnected)
             {                
-                var res = await client.PostAsync(new Uri("http://" + Address + $"/api/control/shutdown"), null);
+                var res = await client.PostAsync(new Uri("https://" + Address + $"/api/control/shutdown"), null);
                 if (res.IsSuccessStatusCode == false)
                 {
-                    if (res.StatusCode == HttpStatusCode.RedirectKeepVerb)
+                    if (res.StatusCode == HttpStatusCode.TemporaryRedirect)
                     {
                         IsAuthed = false;
                     }
@@ -128,10 +132,10 @@ namespace DeviceManager
             }
             if (IsConnected)
             {
-                var res = await client.PostAsync(new Uri("http://" + Address + $"/api/control/restart"), null);
+                var res = await client.PostAsync(new Uri("https://" + Address + $"/api/control/restart"), null);
                 if (res.IsSuccessStatusCode == false)
                 {
-                    if (res.StatusCode == HttpStatusCode.RedirectKeepVerb)
+                    if (res.StatusCode == HttpStatusCode.TemporaryRedirect)
                     {
                         IsAuthed = false;
                     }
@@ -152,7 +156,7 @@ namespace DeviceManager
             try
             {
 
-                var res = await client.PostAsync(new Uri("http://" + Address + $"/api/authorize/pair?pin={credential.Pin}&persistent={credential.Persistent}"), null);
+                var res = await client.PostAsync(new Uri("https://" + Address + $"/api/authorize/pair?pin={credential.Pin}&persistent={credential.Persistent}"), null);
                 if (res.IsSuccessStatusCode == true)
                 {
                     IsAuthed = true;
@@ -170,23 +174,6 @@ namespace DeviceManager
                 IsAuthed = false;                
             }
             
-        }
-        
-        public async Task<IList<Process>> GetProcessesInfoAsync()
-        {
-            if (IsConnected)
-            {
-                return await Manager.ProcessManager.GetProcessesInfoForMobileDeviceAsync(client, Address);
-            }
-            else
-            {
-                throw new DeviceConnectionException("Not connected");
-            }
-        }
-
-        public Task<IList<AppxPackage>> GetAppsInfoAsync()
-        {
-            throw new NotImplementedException();
         }
     }
 }
