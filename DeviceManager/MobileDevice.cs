@@ -27,7 +27,10 @@ namespace DeviceManager
             IsAuthed = false;
             HttpBaseProtocolFilter filter = new HttpBaseProtocolFilter();
             filter.AllowAutoRedirect = false;
-            filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Untrusted | ChainValidationResult.InvalidName);
+
+            filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Expired);
+            filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Untrusted);
+            filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.InvalidName);
             client = new HttpClient(filter);
             client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36");
             TestConnection();      
@@ -59,7 +62,7 @@ namespace DeviceManager
         {
             try
             {
-                var res=await client.GetAsync(new Uri($"http://{Address}/default.htm"));
+                var res=await client.GetAsync(new Uri($"https://{Address}/default.htm"));
                 if(res.IsSuccessStatusCode==true)
                 {
                     IsAuthed = true;
@@ -103,7 +106,7 @@ namespace DeviceManager
             }
             if (IsConnected)
             {                
-                var res = await client.PostAsync(new Uri("http://" + Address + $"/api/control/shutdown"), null);
+                var res = await client.PostAsync(new Uri("https://" + Address + $"/api/control/shutdown"), null);
                 if (res.IsSuccessStatusCode == false)
                 {
                     if (res.StatusCode == HttpStatusCode.TemporaryRedirect)
@@ -129,7 +132,7 @@ namespace DeviceManager
             }
             if (IsConnected)
             {
-                var res = await client.PostAsync(new Uri("http://" + Address + $"/api/control/restart"), null);
+                var res = await client.PostAsync(new Uri("https://" + Address + $"/api/control/restart"), null);
                 if (res.IsSuccessStatusCode == false)
                 {
                     if (res.StatusCode == HttpStatusCode.TemporaryRedirect)
@@ -153,7 +156,7 @@ namespace DeviceManager
             try
             {
 
-                var res = await client.PostAsync(new Uri("http://" + Address + $"/api/authorize/pair?pin={credential.Pin}&persistent={credential.Persistent}"), null);
+                var res = await client.PostAsync(new Uri("https://" + Address + $"/api/authorize/pair?pin={credential.Pin}&persistent={credential.Persistent}"), null);
                 if (res.IsSuccessStatusCode == true)
                 {
                     IsAuthed = true;
