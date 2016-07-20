@@ -24,8 +24,7 @@ namespace DeviceManager.Manager
                 jarr.ToList().ForEach(i =>
                 {
                     var o = i.GetObject();
-                    //Class,Description,FriendlyName,ID,Manufacturer,ParentID,ProblemCode,StatusCode
-                    devices.Add(new HardwareDevice() { });
+                    devices.Add(new HardwareDevice() { o.ContainsKey("Class") ? o["Class"].GetString() : "", o.ContainsKey("FriendlyName") ? o["FriendlyName"].GetString() : "", o.ContainsKey("Description") ? o["Description"].GetString() : "", o.ContainsKey("ID") ? o["ID"].GetString() : "", o.ContainsKey("Manufacturer") ? o["Manufacturer"].GetString() : "", o.ContainsKey("ParentID") ? o["ParentID"].GetString() : "", o.ContainsKey("ProblemCode") ? o["ProblemCode"].GetNumber() : 0, o.ContainsKey("StatusCode") ? o["StatusCode"].GetNumber() : 0 };
                 });
                 return devices;
             }
