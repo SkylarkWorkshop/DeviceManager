@@ -24,7 +24,7 @@ namespace DeviceManager.Manager
                 jarr.ToList().ForEach(i =>
                 {
                     var o = i.GetObject();
-                    devices.Add(new HardwareDevice() { o.ContainsKey("Class") ? o["Class"].GetString() : "", o.ContainsKey("FriendlyName") ? o["FriendlyName"].GetString() : "", o.ContainsKey("Description") ? o["Description"].GetString() : "", o.ContainsKey("ID") ? o["ID"].GetString() : "", o.ContainsKey("Manufacturer") ? o["Manufacturer"].GetString() : "", o.ContainsKey("ParentID") ? o["ParentID"].GetString() : "", o.ContainsKey("ProblemCode") ? o["ProblemCode"].GetNumber() : 0, o.ContainsKey("StatusCode") ? o["StatusCode"].GetNumber() : 0 };
+                    devices.Add(new HardwareDevice() { Class = o.ContainsKey("Class") ? o["Class"].GetString() : "", FriendlyName = o.ContainsKey("FriendlyName") ? o["FriendlyName"].GetString() : "", Description = o.ContainsKey("Description") ? o["Description"].GetString() : "", ID = o.ContainsKey("ID") ? o["ID"].GetString() : "", Manufacturer = o.ContainsKey("Manufacturer") ? o["Manufacturer"].GetString() : "", ParentID = o.ContainsKey("ParentID") ? o["ParentID"].GetString() : "", ProblemCode = o.ContainsKey("ProblemCode") ? o["ProblemCode"].GetNumber() : 0, StatusCode = o.ContainsKey("StatusCode") ? o["StatusCode"].GetNumber() : 0 };
                 });
                 return devices;
             }
