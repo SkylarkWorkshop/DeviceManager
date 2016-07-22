@@ -14,7 +14,7 @@ namespace DeviceManager.Manager
     {
         public static async Task<IList<HardwareDevice>> GetHardwareDeviceInfo(HttpClient client,string addr)
         {
-            var res = await client.GetAsync(new Uri("http://" + addr + ""));
+            var res = await client.GetAsync(new Uri("http://" + addr + "api/devicemanager/devices"));
             var responseText = await res.Content.ReadAsStringAsync();
             if (res.IsSuccessStatusCode == true)
             {

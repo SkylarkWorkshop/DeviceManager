@@ -13,8 +13,8 @@ namespace DeviceManager.Model
         public string ID { get; set; }
         public string Manufacturer { get; set; }
         public string ParentID { get; set; }
-        public string ProblemCode { get; set; }
-        public string StatusCode { get; set; }
+        public int ProblemCode { get; set; }
+        public int StatusCode { get; set; }
 
     }
 }
