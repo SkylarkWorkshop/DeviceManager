@@ -17,9 +17,9 @@ namespace DeviceManager.Model
         public string PackageRelativeId { get; set; }
         public string Publisher { get; set; }
         public object Version { get; set; }
-        public List<RegisteredUsers> ru { get; set; }
+        public List<RegisteredUser> RegUsers { get; set; }
     }
-    public class RegisteredUsers
+    public class RegisteredUser
     {
         public string UserDisplayName { get; set; }
         public string UserSID { get; set; }
