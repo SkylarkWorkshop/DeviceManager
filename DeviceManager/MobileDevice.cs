@@ -10,10 +10,11 @@ using Windows.Data.Json;
 using static DeviceManager.DeviceManager;
 using Windows.Web.Http.Filters;
 using Windows.Security.Cryptography.Certificates;
+using DeviceManager.Model;
 
 namespace DeviceManager
 {
-    public class MobileDevice
+    public class MobileDevice:IDevice
     {
         HttpClient client;
         /// <summary>
@@ -174,6 +175,16 @@ namespace DeviceManager
                 IsAuthed = false;                
             }
             
+        }
+
+        public Task<IList<Process>> GetProcessesInfoAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IList<AppxPackage>> GetAppsInfoAsync()
+        {
+            throw new NotImplementedException();
         }
     }
 }

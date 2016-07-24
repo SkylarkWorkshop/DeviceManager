@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DeviceManager.Model;
 using Windows.Data.Json;
-using System.Net.Http;
+using Windows.Web.Http;
 using static DeviceManager.DeviceManager;
 
 namespace DeviceManager.Manager

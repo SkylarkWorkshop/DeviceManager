@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DeviceManager.Model;
 using Windows.Data.Json;
-using System.Net.Http;
+using Windows.Web.Http;
 using static DeviceManager.DeviceManager;
 
 namespace DeviceManager.Manager
@@ -24,7 +24,7 @@ namespace DeviceManager.Manager
                 jarr.ToList().ForEach(i =>
                 {
                     var o = i.GetObject();
-                    devices.Add(new HardwareDevice() { Class = o.ContainsKey("Class") ? o["Class"].GetString() : "", FriendlyName = o.ContainsKey("FriendlyName") ? o["FriendlyName"].GetString() : "", Description = o.ContainsKey("Description") ? o["Description"].GetString() : "", ID = o.ContainsKey("ID") ? o["ID"].GetString() : "", Manufacturer = o.ContainsKey("Manufacturer") ? o["Manufacturer"].GetString() : "", ParentID = o.ContainsKey("ParentID") ? o["ParentID"].GetString() : "", ProblemCode = o.ContainsKey("ProblemCode") ? o["ProblemCode"].GetNumber() : 0, StatusCode = o.ContainsKey("StatusCode") ? o["StatusCode"].GetNumber() : 0 };
+                    devices.Add(new HardwareDevice() { Class = o.ContainsKey("Class") ? o["Class"].GetString() : "", FriendlyName = o.ContainsKey("FriendlyName") ? o["FriendlyName"].GetString() : "", Description = o.ContainsKey("Description") ? o["Description"].GetString() : "", ID = o.ContainsKey("ID") ? o["ID"].GetString() : "", Manufacturer = o.ContainsKey("Manufacturer") ? o["Manufacturer"].GetString() : "", ParentID = o.ContainsKey("ParentID") ? o["ParentID"].GetString() : "", ProblemCode = o.ContainsKey("ProblemCode") ? Convert.ToInt32(o["ProblemCode"].GetNumber()) : 0, StatusCode = o.ContainsKey("StatusCode") ? Convert.ToInt32(o["StatusCode"].GetNumber()) : 0 });
                 });
                 return devices;
             }

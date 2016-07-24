@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DeviceManager.Model;
 using Windows.Data.Json;
-using System.Net.Http;
+using Windows.Web.Http;
 using static DeviceManager.DeviceManager;
 
 namespace DeviceManager.Manager
@@ -32,7 +32,7 @@ namespace DeviceManager.Manager
                         rusers.Add(new RegisteredUsers() { UserDisplayName = _o.ContainsKey("UserDisplayName") ? _o["UserDisplayName"].GetString() : "", UserSID = _o.ContainsKey("UserSID") ? _o["UserSID"].GetString() : "" });
                     }
                     );
-                    application.Add(new AppxPackage() { CanUninstall = o.ContainsKey("CanUninstall") ? o["CanUninstall"].GetBoolean() : true, Name = o.ContainsKey("Name") ? o["Name"].GetString() : "", PackageFamilyName = o.ContainsKey("PackageFamilyName") ? o["PackageFamilyName"].GetString() : "", PackageFullName = o.ContainsKey("PackageFullName") ? o["PackageFullName"].GetString() : "", PackageOrigin = o.ContainsKey("PackageOrigin") ? o["PackageOrigin"].GetNumber() : 0, PackageRelativeId = o.ContainsKey("PackageRelativeId") ? o["PackageRelativeId"].GetString() : "", Publisher = o.ContainsKey("Publisher") ? o["Publisher"].GetString() : "", Version = o.ContainsKey("Version") ? new Version(Convert.ToInt32(o["Version"].GetObject()["Major"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Minor"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Build"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Revision"].GetNumber())) : null, ru = rusers });
+                    application.Add(new AppxPackage() { CanUninstall = o.ContainsKey("CanUninstall") ? o["CanUninstall"].GetBoolean() : true, Name = o.ContainsKey("Name") ? o["Name"].GetString() : "", PackageFamilyName = o.ContainsKey("PackageFamilyName") ? o["PackageFamilyName"].GetString() : "", PackageFullName = o.ContainsKey("PackageFullName") ? o["PackageFullName"].GetString() : "", PackageOrigin = o.ContainsKey("PackageOrigin") ? Convert.ToInt32(o["PackageOrigin"].GetNumber()) : 0, PackageRelativeId = o.ContainsKey("PackageRelativeId") ? o["PackageRelativeId"].GetString() : "", Publisher = o.ContainsKey("Publisher") ? o["Publisher"].GetString() : "", Version = o.ContainsKey("Version") ? new Version(Convert.ToInt32(o["Version"].GetObject()["Major"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Minor"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Build"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Revision"].GetNumber())) : null, ru = rusers });
                 }
                 );
 				return application;

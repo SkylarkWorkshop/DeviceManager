@@ -2,8 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
+using Windows.Web.Http.Filters;
+using Windows.Web.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Data.Json;
@@ -14,7 +14,7 @@ namespace DeviceManager
     public class IoTDevice : IDevice
     {
         HttpClient client;
-        HttpClientHandler handler;
+        HttpBaseProtocolFilter handler;
         /// <summary>
         /// Init and connect to the IoT device with the specified address.
         /// </summary>
@@ -24,11 +24,10 @@ namespace DeviceManager
             IsReady = false;
             Address = addr;
             IsAuthed = false;
-            handler = new HttpClientHandler();
+            handler = new HttpBaseProtocolFilter();
             handler.AllowAutoRedirect = false;
             client = new HttpClient(handler);
             client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36");
-            client.Timeout = TimeSpan.FromSeconds(10);
             TestConnection();
         }
         public bool IsReady { get; private set; }
@@ -58,7 +57,7 @@ namespace DeviceManager
         {
             try
             {
-                var res = await client.GetAsync($"http://{Address}/default.htm");
+                var res = await client.GetAsync(new Uri($"http://{Address}/default.htm"));
                 if (res.IsSuccessStatusCode == true)
                 {
                     IsAuthed = true;
@@ -103,7 +102,7 @@ namespace DeviceManager
                 var res = await client.PostAsync(new Uri("http://" + Address + $"/api/control/shutdown"), null);
                 if (res.IsSuccessStatusCode == false)
                 {
-                    if (res.StatusCode == HttpStatusCode.RedirectKeepVerb)
+                    if (res.StatusCode == HttpStatusCode.TemporaryRedirect)
                     {
                         IsAuthed = false;
                     }
@@ -129,7 +128,7 @@ namespace DeviceManager
                 var res = await client.PostAsync(new Uri("http://" + Address + $"/api/control/restart"), null);
                 if (res.IsSuccessStatusCode == false)
                 {
-                    if (res.StatusCode == HttpStatusCode.RedirectKeepVerb)
+                    if (res.StatusCode == HttpStatusCode.TemporaryRedirect)
                     {
                         IsAuthed = false;
                     }
@@ -149,9 +148,8 @@ namespace DeviceManager
         {
             try
             {
-                client = new HttpClient(new HttpClientHandler() { AllowAutoRedirect = false, Credentials = new NetworkCredential(credential.UserName,credential.Pin) });
+                client = new HttpClient(new HttpBaseProtocolFilter() { AllowAutoRedirect = false, ServerCredential = new Windows.Security.Credentials.PasswordCredential() { UserName = credential.UserName, Password = credential.Pin } });
                 client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36");
-                client.Timeout = TimeSpan.FromSeconds(10);
                 var res = await client.GetAsync(new Uri("http://" + Address + "/default.htm"));
                 if (res.IsSuccessStatusCode == true)
                 {
