@@ -25,14 +25,30 @@ namespace DeviceManager.Manager
                 jarr.ToList().ForEach(i =>
                 {
                     var o = i.GetObject();
-                    JsonArray jarr1 = o["RegisteredUsers"].GetArray();
-                    jarr1.ToList().ForEach(_i =>
+                    if(o.ContainsKey("RegisteredUsers"))
                     {
-                        var _o = _i.GetObject();
-                        rusers.Add(new RegisteredUser() { UserDisplayName = _o.ContainsKey("UserDisplayName") ? _o["UserDisplayName"].GetString() : "", UserSID = _o.ContainsKey("UserSID") ? _o["UserSID"].GetString() : "" });
+                        JsonArray jarr1 = o["RegisteredUsers"].GetArray();
+                        jarr1.ToList().ForEach(_i =>
+                        {
+                            var _o = _i.GetObject();
+                            rusers.Add(new RegisteredUser() { UserDisplayName = _o.ContainsKey("UserDisplayName") ? _o["UserDisplayName"].GetString() : "", UserSID = _o.ContainsKey("UserSID") ? _o["UserSID"].GetString() : "" });
+                        }
+                        );
                     }
-                    );
-                    application.Add(new AppxPackage() { CanUninstall = o.ContainsKey("CanUninstall") ? o["CanUninstall"].GetBoolean() : true, Name = o.ContainsKey("Name") ? o["Name"].GetString() : "", PackageFamilyName = o.ContainsKey("PackageFamilyName") ? o["PackageFamilyName"].GetString() : "", PackageFullName = o.ContainsKey("PackageFullName") ? o["PackageFullName"].GetString() : "", PackageOrigin = o.ContainsKey("PackageOrigin") ? Convert.ToInt32(o["PackageOrigin"].GetNumber()) : 0, PackageRelativeId = o.ContainsKey("PackageRelativeId") ? o["PackageRelativeId"].GetString() : "", Publisher = o.ContainsKey("Publisher") ? o["Publisher"].GetString() : "", Version = o.ContainsKey("Version") ? new Version(Convert.ToInt32(o["Version"].GetObject()["Major"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Minor"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Build"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Revision"].GetNumber())) : null, RegUser = rusers });
+                    application.Add(new AppxPackage()
+                    {
+                        CanUninstall = o.ContainsKey("CanUninstall") ? o["CanUninstall"].GetBoolean() : true,
+                        Name = o.ContainsKey("Name") ? o["Name"].GetString() : null,
+                        PackageFamilyName = o.ContainsKey("PackageFamilyName") ? o["PackageFamilyName"].GetString() : null,
+                        PackageFullName = o.ContainsKey("PackageFullName") ? o["PackageFullName"].GetString() : null,
+                        PackageOrigin = o.ContainsKey("PackageOrigin") ? Convert.ToInt32(o["PackageOrigin"].GetNumber()) : 0,
+                        PackageRelativeId = o.ContainsKey("PackageRelativeId") ? o["PackageRelativeId"].GetString() : null,
+                        Publisher = o.ContainsKey("Publisher") ? o["Publisher"].GetString() : null,
+                        Version = o.ContainsKey("Version") ? new Version(Convert.ToInt32(o["Version"].GetObject()["Major"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Minor"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Build"].GetNumber()), Convert.ToInt32(o["Version"].GetObject()["Revision"].GetNumber())) : null,
+                        RegUsers = rusers,
+                        IsXap =o.ContainsKey("IsXap")?o["IsXap"].GetBoolean():false,
+                        UninstallDeniedReason =o.ContainsKey("UninstallDeniedReason")?o["UninstallDeniedReason"].GetString():null
+                    });
                 }
                 );
 				return application;

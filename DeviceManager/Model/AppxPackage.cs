@@ -18,6 +18,8 @@ namespace DeviceManager.Model
         public string Publisher { get; set; }
         public object Version { get; set; }
         public List<RegisteredUser> RegUsers { get; set; }
+        public bool IsXap { get; set; }
+        public string UninstallDeniedReason { get; set; }
     }
     public class RegisteredUser
     {
