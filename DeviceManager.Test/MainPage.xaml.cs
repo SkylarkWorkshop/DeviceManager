@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using DeviceManager;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Windows.System;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace DeviceManager.Test
@@ -27,6 +28,14 @@ namespace DeviceManager.Test
         public MainPage()
         {
             this.InitializeComponent();
+            Run();
+        }
+        async void Run()
+        {
+            var options = new LauncherOptions();
+            options.TargetApplicationPackageFamilyName = "45240.QuickShutdown_2e7exxddxvejw";
+            var launcherUri = new Uri("App:?AddUrl=http………com");
+            await Launcher.LaunchUriAsync(launcherUri, options);
         }
         MobileDevice device;
         private void conn_btn_Click(object sender, RoutedEventArgs e)

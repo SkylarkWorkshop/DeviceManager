@@ -11,12 +11,14 @@ using static DeviceManager.DeviceManager;
 using Windows.Web.Http.Filters;
 using Windows.Security.Cryptography.Certificates;
 using DeviceManager.Model;
+using DeviceManager.Manager;
 
 namespace DeviceManager
 {
     public class MobileDevice:IDevice
     {
         HttpClient client;
+        HttpBaseProtocolFilter filter;
         /// <summary>
         /// Init and connect to the mobile device with the specified address.
         /// </summary>
@@ -28,7 +30,6 @@ namespace DeviceManager
             IsAuthed = false;
             HttpBaseProtocolFilter filter = new HttpBaseProtocolFilter();
             filter.AllowAutoRedirect = false;
-
             filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Expired);
             filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Untrusted);
             filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.InvalidName);
@@ -63,12 +64,20 @@ namespace DeviceManager
         {
             try
             {
-                var res=await client.GetAsync(new Uri($"https://{Address}/default.htm"));
-                if(res.IsSuccessStatusCode==true)
+                var res = await client.GetAsync(new Uri($"https://{Address}/default.htm"));
+                if (filter != null)
+                {
+                    var cookies = filter.CookieManager.GetCookies(new Uri($"https://{Address}/default.htm")).Where(x => x.Name == "CSRF-Token");
+                    foreach (var i in cookies)
+                    {
+                        client.DefaultRequestHeaders.Add("X-CSRF-Token", i.Value);
+                    }
+                }
+
+                if (res.IsSuccessStatusCode == true)
                 {
                     IsAuthed = true;
-                    IsConnected= true;
-                    
+                    IsConnected = true;
                 }
                 else
                 {
@@ -76,7 +85,7 @@ namespace DeviceManager
                     {
                         IsAuthed = false;
                         IsConnected = true;
-                        
+
                     }
                     else
                     {
@@ -85,6 +94,7 @@ namespace DeviceManager
                     }
 
                 }
+
                 IsReady = true;
             }
             catch
@@ -93,8 +103,6 @@ namespace DeviceManager
                 IsConnected = false;
                 IsReady = true;
             }
-            
-            
         }
         /// <summary>
         /// Shutdown the current device.
@@ -177,14 +185,14 @@ namespace DeviceManager
             
         }
 
-        public Task<IList<Process>> GetProcessesInfoAsync()
+        public async Task<IList<Process>> GetProcessesInfoAsync()
         {
-            throw new NotImplementedException();
+            return await ProcessManager.GetProcessesInfoForMobileDeviceAsync(this.client, this.Address);
         }
 
-        public Task<IList<AppxPackage>> GetAppsInfoAsync()
+        public async Task<IList<AppxPackage>> GetAppsInfoAsync()
         {
-            throw new NotImplementedException();
+            return await AppsManager.GetApplicationInfo(this.client, this.Address);
         }
     }
 }
