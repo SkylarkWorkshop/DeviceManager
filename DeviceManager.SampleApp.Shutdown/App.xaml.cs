@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -45,7 +46,8 @@ namespace DeviceManager.SampleApp.Shutdown
         private async void OnUnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
         {
             e.Handled = true;
-            await new MessageDialog("Make sure you have configured your device correctly.\n\n" + e.Exception.Message, "Error")
+            ResourceLoader loader = new ResourceLoader();
+            await new MessageDialog(loader.GetString("ErrorText") +"\n\n"+ e.Exception.Message, loader.GetString("ErrorTitle"))
                 .ShowAsync();
             (Window.Current.Content as Frame).Navigate(typeof(ConfigPage));
         }
@@ -59,8 +61,9 @@ namespace DeviceManager.SampleApp.Shutdown
         private async void SynchronizationContext_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             e.Handled = true;
-            await new MessageDialog("Make sure you have configured your device correctly.\n\n" + e.Exception.Message, "Error")
-                 .ShowAsync();
+            ResourceLoader loader = new ResourceLoader();
+            await new MessageDialog(loader.GetString("ErrorText") +"\n\n"+ e.Exception.Message, loader.GetString("ErrorTitle"))
+                .ShowAsync();
             (Window.Current.Content as Frame).Navigate(typeof(ConfigPage));
         }
         /// <summary>

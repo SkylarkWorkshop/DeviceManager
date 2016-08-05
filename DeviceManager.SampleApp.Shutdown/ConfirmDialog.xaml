@@ -10,8 +10,8 @@
     PrimaryButtonText="Button1"
     SecondaryButtonText="Button2"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
-    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick" VerticalAlignment="Center">
 
-    <Grid>
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
     </Grid>
 </ContentDialog>

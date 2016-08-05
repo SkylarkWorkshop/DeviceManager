@@ -10,14 +10,17 @@ using Windows.Data.Json;
 using static DeviceManager.DeviceManager;
 using Windows.Web.Http.Filters;
 using Windows.Security.Cryptography.Certificates;
+using DeviceManager.Model;
+using System.Diagnostics;
 
 namespace DeviceManager
 {
     public class MobileDevice
     {
         HttpClient client;
+        HttpBaseProtocolFilter filter;
         /// <summary>
-        /// Init and connect to the mobile device with the specified address.
+        /// Init and connect to a mobile device with the specified address.
         /// </summary>
         /// <param name="addr"></param>
         public MobileDevice(string addr)
@@ -25,9 +28,8 @@ namespace DeviceManager
             IsReady = false;
             Address = addr;
             IsAuthed = false;
-            HttpBaseProtocolFilter filter = new HttpBaseProtocolFilter();
-            filter.AllowAutoRedirect = false;
-
+            filter = new HttpBaseProtocolFilter();
+            filter.AllowAutoRedirect = false;            
             filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Expired);
             filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Untrusted);
             filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.InvalidName);
@@ -58,16 +60,25 @@ namespace DeviceManager
         {
             get { return DeviceType.Mobile; }
         }
+        List<Token> _toks=new List<Token>();
         private async void TestConnection()
         {
             try
             {
                 var res=await client.GetAsync(new Uri($"https://{Address}/default.htm"));
-                if(res.IsSuccessStatusCode==true)
+                if(filter!=null)
+                {
+                    var cookies = filter.CookieManager.GetCookies(new Uri($"https://{Address}/default.htm")).Where(x=>x.Name== "CSRF-Token");
+                    foreach(var i in cookies)
+                    {
+                        client.DefaultRequestHeaders.Add("X-CSRF-Token", i.Value);
+                    }
+                }
+                
+                if (res.IsSuccessStatusCode==true)
                 {
                     IsAuthed = true;
-                    IsConnected= true;
-                    
+                    IsConnected= true; 
                 }
                 else
                 {
@@ -84,6 +95,7 @@ namespace DeviceManager
                     }
 
                 }
+               
                 IsReady = true;
             }
             catch
@@ -105,7 +117,7 @@ namespace DeviceManager
                 await Task.Delay(5);
             }
             if (IsConnected)
-            {                
+            {
                 var res = await client.PostAsync(new Uri("https://" + Address + $"/api/control/shutdown"), null);
                 if (res.IsSuccessStatusCode == false)
                 {
@@ -119,7 +131,7 @@ namespace DeviceManager
             else
             {
                 throw new DeviceConnectionException("Not connected");
-            }  
+            }
         }
         /// <summary>
         /// Restart the current device.

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -30,11 +31,13 @@ namespace DeviceManager.SampleApp.Shutdown
     public sealed partial class StartPage : Page
     {
         MobileDevice device;
+        ResourceLoader loader;
         public StartPage()
         {
             this.InitializeComponent();
             device = MobileDeviceManager.ConnectLocal();
             SetStatusBar(Color.FromArgb(255, 51, 51, 51), Colors.White);
+            loader = new ResourceLoader();
         }
         private static async void SetStatusBar(Color bc, Color fc)
         {
@@ -52,8 +55,8 @@ namespace DeviceManager.SampleApp.Shutdown
             try
             {
 
-                var msg = new MessageDialog("Shutdown?", "Confirm");
-                msg.Commands.Add(new UICommand("Yes", command =>
+                var msg = new MessageDialog(loader.GetString("ConfirmShutText"), loader.GetString("ConfirmTitle"));
+                msg.Commands.Add(new UICommand(loader.GetString("ConfirmYes"), command =>
                 {
                     try
                     {
@@ -64,7 +67,7 @@ namespace DeviceManager.SampleApp.Shutdown
                         Frame.Navigate(typeof(ConfigPage));
                     }
                 }));
-                msg.Commands.Add(new UICommand("No", command =>
+                msg.Commands.Add(new UICommand(loader.GetString("ConfirmNo"), command =>
                 {
                     return;
                 }));
@@ -83,8 +86,8 @@ namespace DeviceManager.SampleApp.Shutdown
             try
             {
 
-                var msg = new MessageDialog("Restart?", "Confirm");
-                msg.Commands.Add(new UICommand("Yes", command =>
+                var msg = new MessageDialog(loader.GetString("ConfirmRestartText"), loader.GetString("ConfirmTitle"));
+                msg.Commands.Add(new UICommand(loader.GetString("ConfirmYes"), command =>
                 {
                     try
                     {
@@ -95,7 +98,7 @@ namespace DeviceManager.SampleApp.Shutdown
                         Frame.Navigate(typeof(ConfigPage));
                     }
                 }));
-                msg.Commands.Add(new UICommand("No", command =>
+                msg.Commands.Add(new UICommand(loader.GetString("ConfirmNo"), command =>
                 {
                     return;
                 }));

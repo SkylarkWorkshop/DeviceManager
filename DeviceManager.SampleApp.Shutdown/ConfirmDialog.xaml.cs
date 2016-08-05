@@ -19,11 +19,18 @@ namespace DeviceManager.SampleApp.Shutdown
 {
     public sealed partial class ConfirmDialog : ContentDialog
     {
+
         public ConfirmDialog()
         {
             this.InitializeComponent();
         }
-
+        public ConfirmDialog(string content,string title,string primaryBtnText,string secondaryBtnText):this()
+        {
+            this.Title = title;
+            this.Content = content;
+            this.PrimaryButtonText = primaryBtnText;
+            this.SecondaryButtonText = secondaryBtnText;
+        }
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
         }

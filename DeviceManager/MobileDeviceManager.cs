@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Networking.Connectivity;
 using Windows.Web.Http;
 using Windows.Web.Http.Filters;
 
@@ -11,7 +12,7 @@ namespace DeviceManager
     public class MobileDeviceManager
     {
         /// <summary>
-        /// Connect to local device (127.0.0.1).
+        /// Connect to local device.
         /// </summary>
         /// <returns></returns>
         public static MobileDevice ConnectLocal()

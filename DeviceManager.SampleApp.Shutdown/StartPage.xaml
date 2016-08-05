@@ -20,13 +20,13 @@
         <Button x:Name="shut_btn" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="shut_btn_Click">
             <StackPanel>
                 <TextBlock Foreground="White" Style="{StaticResource TitleTextBlockStyle}" FontFamily="Segoe MDL2 Assets" FontSize="68" HorizontalAlignment="Center"></TextBlock>
-                <TextBlock Text="Shutdown" Foreground="White" Style="{StaticResource TitleTextBlockStyle}" Margin="0,32,0,0" FontSize="18" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock x:Uid="ShutBtnTxt" Foreground="White" Style="{StaticResource TitleTextBlockStyle}" Margin="0,32,0,0" FontSize="18" HorizontalAlignment="Center" Text="Shutdown"></TextBlock>
             </StackPanel>
         </Button>
         <Button x:Name="restart_btn" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="restart_btn_Click">
             <StackPanel>
                 <TextBlock Foreground="White" Style="{StaticResource TitleTextBlockStyle}" FontFamily="Segoe MDL2 Assets" FontSize="62" HorizontalAlignment="Center"></TextBlock>
-                <TextBlock Text="Restart" Foreground="White" Style="{StaticResource TitleTextBlockStyle}" Margin="0,32,0,0" FontSize="18" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock x:Uid="RebootBtnTxt" Text="Restart" Foreground="White" Style="{StaticResource TitleTextBlockStyle}" Margin="0,32,0,0" FontSize="18" HorizontalAlignment="Center"></TextBlock>
             </StackPanel>
         </Button>
     </Grid>

@@ -303,7 +303,7 @@
                                     </VisualState>
                                     <VisualState x:Name="PointerOver">
                                         <Storyboard>
-                                            
+
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Pressed">
@@ -379,7 +379,7 @@
                             <TextBlock x:Uid="ConnectNowText" Style="{StaticResource TitleTextBlockStyle}" Text="Connect Now!" Foreground="White" VerticalAlignment="Center" Margin="16,0,0,0" FontSize="20"/>
                         </StackPanel>
                     </Button>
-                    <CheckBox x:Name="rememberme_cbx" x:Uid="RememberMe" Content="Remember Me (Not support in 10586)" FontSize="16" HorizontalAlignment="Center" Margin="31.5,40,31.5,0" Style="{StaticResource CheckBoxStyle1}" Foreground="White" IsChecked="False"/>
+                    <CheckBox x:Name="rememberme_cbx" x:Uid="RememberMe" Content="Remember Me (Not supported for 10586)" FontSize="16" HorizontalAlignment="Center" Margin="0,40,0,0" Style="{StaticResource CheckBoxStyle1}" Foreground="White" IsChecked="False"/>
 
                 </StackPanel>
             </Grid>

@@ -117,8 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ConfirmNo" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="ConfirmRestartText" xml:space="preserve">
+    <value>重启？</value>
+  </data>
+  <data name="ConfirmShutText" xml:space="preserve">
+    <value>关机？</value>
+  </data>
+  <data name="ConfirmTitle" xml:space="preserve">
+    <value>请确认</value>
+  </data>
+  <data name="ConfirmYes" xml:space="preserve">
+    <value>确定</value>
+  </data>
   <data name="ConnectFailedContent" xml:space="preserve">
-    <value>连接失败，请确认您是否已经按照帮助页面的指示配置好了您的设备。如果您正在运行的版本是 10586 或更新的版本，请尝试关闭“记住我”。</value>
+    <value>操作失败，请确认您是否已经按照帮助页面的指示配置好了您的设备。如果您正在运行的版本是 10586，请在“设备门户”设置中关闭身份验证。</value>
   </data>
   <data name="ConnectFailedTitle" xml:space="preserve">
     <value>出现错误</value>
@@ -132,8 +147,26 @@
   <data name="ConnectSuccessTitle" xml:space="preserve">
     <value>成功</value>
   </data>
+  <data name="ErrorText" xml:space="preserve">
+    <value>请确认您已经正确地配置了您的设备，并且您的设备支持这个 APP。</value>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="NetworkReqText" xml:space="preserve">
+    <value>由于系统限制，您的设备暂时不能使用这个 APP</value>
+  </data>
+  <data name="NetworkReqTitle" xml:space="preserve">
+    <value>网络连接</value>
+  </data>
+  <data name="RebootBtnTxt.Text" xml:space="preserve">
+    <value>重启</value>
+  </data>
   <data name="RememberMe.Content" xml:space="preserve">
     <value>记住我（不支持 10586）</value>
+  </data>
+  <data name="ShutBtnTxt.Text" xml:space="preserve">
+    <value>关机</value>
   </data>
   <data name="Welcome.Text" xml:space="preserve">
     <value>欢迎</value>

@@ -5,10 +5,14 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Resources;
+using Windows.Devices.Enumeration;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System.Profile;
 using Windows.UI;
 using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -28,16 +32,19 @@ namespace DeviceManager.SampleApp.Shutdown
     public sealed partial class ExtendedSplash : Page
     {
         MobileDevice device;
+        ResourceLoader loader;
         private SplashScreen splash;
         internal Frame rootFrame;
         public ExtendedSplash()
         {
             this.InitializeComponent();
+            loader = new ResourceLoader();
         }
         public ExtendedSplash(SplashScreen splashscreen, bool loadState)
         {
             InitializeComponent();
             splash = splashscreen;
+            loader = new ResourceLoader();
             SetStatusBar(Color.FromArgb(255, 51, 51, 51), Colors.White);
             DismissExtendedSplash();
             rootFrame = new Frame();
@@ -46,6 +53,7 @@ namespace DeviceManager.SampleApp.Shutdown
         {
             if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
             {
+                
                 var statusBar = StatusBar.GetForCurrentView();
                 statusBar.BackgroundColor = bc;
                 statusBar.ForegroundColor = fc;
@@ -55,11 +63,15 @@ namespace DeviceManager.SampleApp.Shutdown
         }
         async void DismissExtendedSplash()
         {
+            
             device = MobileDeviceManager.ConnectLocal();
             while (!device.IsReady)
             {
                 await Task.Delay(5);
             }
+            
+               
+            
             if (device.IsAuthed && device.IsConnected)
             {
                 rootFrame.Navigate(typeof(StartPage));
