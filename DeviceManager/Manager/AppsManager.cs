@@ -58,11 +58,11 @@ namespace DeviceManager.Manager
                 throw new DeviceConnectionException("Failed to connect", res.StatusCode);
             }
         }
-        public static async void DeployAppAsync(HttpClient client,string addr,AppxPackage app)
+        public static async void DeployAppAsync(HttpClient client, string addr, AppxPackage app)
         {
             throw new NotImplementedException();
         }
-        public static async void UninstallAppAsync(HttpClient client,string addr,string packageName)
+        public static async void UninstallAppAsync(HttpClient client, string addr, string packageName)
         {
             var hrm = new HttpRequestMessage();
             hrm.Method = new HttpMethod("DELETE");
@@ -80,7 +80,7 @@ namespace DeviceManager.Manager
                 }
             }
         }
-		public static async void LaunchAppAsync(HttpClient client,string addr,string appid,string packageName)
+	public static async void LaunchAppAsync(HttpClient client, string addr, string appid, string packageName)
         {
             var hrm = new HttpRequestMessage();
             hrm.Method = new HttpMethod("POST");
@@ -95,6 +95,24 @@ namespace DeviceManager.Manager
                 else
                 {
                     throw new DeviceConnectionException("Failed to launch.", res.StatusCode);
+                }
+            }
+        }
+        public static async void CloseAppAsync(HttpClient client, string addr, string appid, string packageName)
+        {
+            var hrm = new HttpRequestMessage();
+            hrm.Method = new HttpMethod("DELETE");
+            hrm.RequestUri = new Uri(string.Format("http://{0}/api/taskmanager/app?package={1}", packageName));
+            var res = await client.SendRequestAsync(hrm);
+            if (res.IsSuccessStatusCode == false)
+            {
+                if (res.StatusCode == HttpStatusCode.TemporaryRedirect)
+                {
+                    throw new DeviceConnectionException("Failed to auth.", res.StatusCode);
+                }
+                else
+                {
+                    throw new DeviceConnectionException("Failed to close.", res.StatusCode);
                 }
             }
         }
