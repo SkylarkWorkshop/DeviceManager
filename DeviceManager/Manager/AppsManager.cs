@@ -84,7 +84,7 @@ namespace DeviceManager.Manager
         {
             var hrm = new HttpRequestMessage();
             hrm.Method = new HttpMethod("POST");
-            hrm.RequestUri = new Uri(string.Format("http://{0}/api/taskmanager/app?appid={1}&package={2}",addr,appid,packageName));
+            hrm.RequestUri = new Uri(string.Format("http://{0}/api/taskmanager/app?appid={1}&package={2}", addr, appid, packageName));
             var res = await client.SendRequestAsync(hrm);
             if (res.IsSuccessStatusCode == false)
             {
@@ -98,11 +98,11 @@ namespace DeviceManager.Manager
                 }
             }
         }
-        public static async void CloseAppAsync(HttpClient client, string addr, string appid, string packageName)
+        public static async void CloseAppAsync(HttpClient client, string addr, string packageName)
         {
             var hrm = new HttpRequestMessage();
             hrm.Method = new HttpMethod("DELETE");
-            hrm.RequestUri = new Uri(string.Format("http://{0}/api/taskmanager/app?package={1}", packageName));
+            hrm.RequestUri = new Uri(string.Format("http://{0}/api/taskmanager/app?package={1}", addr, packageName));
             var res = await client.SendRequestAsync(hrm);
             if (res.IsSuccessStatusCode == false)
             {
