@@ -7,11 +7,11 @@ namespace DeviceManager.Model
 {
     public class OSInfo
     {
-        public string Language { get; set; }
-        public string OsEdition { get; set; }
-        public int OsEditionId { get; set; }
-        public string OsVersion { get; set; }
-        public string Platform { get; set; }
+        public string Language { get; internal set; }
+        public string OsEdition { get; internal set; }
+        public int OsEditionId { get; internal set; }
+        public string OsVersion { get; internal set; }
+        public string Platform { get; internal set; }
 
     }
 }

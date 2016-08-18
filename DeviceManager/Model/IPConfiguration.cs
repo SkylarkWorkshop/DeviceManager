@@ -7,40 +7,40 @@ namespace DeviceManager.Model
 {
     public class IPConfiguration
     {
-        public string Description { get; set; }
-        public string HardwareAddress { get; set; }
-        public int Index { get; set; }
-        public string Name { get; set; }
-        public string Type { get; set; }
+        public string Description { get; internal set; }
+        public string HardwareAddress { get; internal set; }
+        public int Index { get; internal set; }
+        public string Name { get; internal set; }
+        public string Type { get; internal set; }
 
-        public DHCP DHCP { get; set; }
-        public Address Address { get; set; }
-        public Gateways[] Gateways { get; set; }
-        public IPAddress[] IpAddresses { get; set; }
+        public DHCP DHCP { get; internal set; }
+        public Address Address { get; internal set; }
+        public Gateways[] Gateways { get; internal set; }
+        public IPAddress[] IpAddresses { get; internal set; }
     }
     public class DHCP
     {
-        public string LeaseExpires { get; set; }
-        public string LeaseObtained { get; set; }
+        public string LeaseExpires { get; internal set; }
+        public string LeaseObtained { get; internal set; }
 
     }
     public class Address
     {
-        public string IpAddress { get; set; }
-        public string Mask { get; set; }
+        public string IpAddress { get; internal set; }
+        public string Mask { get; internal set; }
     }
 
     public class Gateways
 
     {
-        public string IpAddress { get; set; }
-        public string Mask { get; set; }
+        public string IpAddress { get; internal set; }
+        public string Mask { get; internal set; }
     }
 
     public class IPAddress
     {
-        public string IpAddress { get; set; }
-        public string Mask { get; set; }
+        public string IpAddress { get; internal set; }
+        public string Mask { get; internal set; }
     }
 
 

@@ -14,7 +14,7 @@ namespace DeviceManager
     public class IoTDevice : IDevice
     {
         HttpClient client;
-        HttpBaseProtocolFilter handler;
+        HttpBaseProtocolFilter filter;
         /// <summary>
         /// Init and connect to the IoT device with the specified address.
         /// </summary>
@@ -24,9 +24,9 @@ namespace DeviceManager
             IsReady = false;
             Address = addr;
             IsAuthed = false;
-            handler = new HttpBaseProtocolFilter();
-            handler.AllowAutoRedirect = false;
-            client = new HttpClient(handler);
+            filter = new HttpBaseProtocolFilter();
+            filter.AllowAutoRedirect = false;
+            client = new HttpClient(filter);
             client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36");
             TestConnection();
         }
@@ -57,7 +57,16 @@ namespace DeviceManager
         {
             try
             {
-                var res = await client.GetAsync(new Uri($"http://{Address}/default.htm"));
+                var res = await client.GetAsync(new Uri($"https://{Address}/default.htm"));
+                if (filter != null)
+                {
+                    var cookies = filter.CookieManager.GetCookies(new Uri($"https://{Address}/default.htm")).Where(x => x.Name == "CSRF-Token");
+                    foreach (var i in cookies)
+                    {
+                        client.DefaultRequestHeaders.Add("X-CSRF-Token", i.Value);
+                    }
+                }
+
                 if (res.IsSuccessStatusCode == true)
                 {
                     IsAuthed = true;
@@ -65,10 +74,11 @@ namespace DeviceManager
                 }
                 else
                 {
-                    if (res.StatusCode == HttpStatusCode.Unauthorized)
+                    if (res.StatusCode == HttpStatusCode.TemporaryRedirect)
                     {
                         IsAuthed = false;
                         IsConnected = true;
+
                     }
                     else
                     {
@@ -77,6 +87,7 @@ namespace DeviceManager
                     }
 
                 }
+
                 IsReady = true;
             }
             catch
@@ -85,8 +96,6 @@ namespace DeviceManager
                 IsConnected = false;
                 IsReady = true;
             }
-
-
         }
         /// <summary>
         /// Shutdown the current device.
@@ -99,7 +108,7 @@ namespace DeviceManager
             }
             if (IsConnected)
             {
-                var res = await client.PostAsync(new Uri("http://" + Address + $"/api/control/shutdown"), null);
+                var res = await client.PostAsync(new Uri("https://" + Address + $"/api/control/shutdown"), null);
                 if (res.IsSuccessStatusCode == false)
                 {
                     if (res.StatusCode == HttpStatusCode.TemporaryRedirect)
@@ -125,7 +134,7 @@ namespace DeviceManager
             }
             if (IsConnected)
             {
-                var res = await client.PostAsync(new Uri("http://" + Address + $"/api/control/restart"), null);
+                var res = await client.PostAsync(new Uri("https://" + Address + $"/api/control/restart"), null);
                 if (res.IsSuccessStatusCode == false)
                 {
                     if (res.StatusCode == HttpStatusCode.TemporaryRedirect)
@@ -185,6 +194,20 @@ namespace DeviceManager
         public Task<IList<AppxPackage>> GetAppsInfoAsync()
         {
             throw new NotImplementedException();
+        }
+        public Task UninstallAppAsync(string packageName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task LaunchAppAsync(string appid, string packageName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<SystemPerf> GetSystemPerfAsync()
+        {
+            return await SysPerfManager.GetSystemPerfAsync(this.client, this.Address);
         }
     }
 }

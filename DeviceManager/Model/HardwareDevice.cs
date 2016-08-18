@@ -7,14 +7,14 @@ namespace DeviceManager.Model
 {
     public class HardwareDevice
     {
-        public string Class { get; set; }
-        public string Description { get; set; }
-        public string FriendlyName { get; set; }
-        public string ID { get; set; }
-        public string Manufacturer { get; set; }
-        public string ParentID { get; set; }
-        public int ProblemCode { get; set; }
-        public int StatusCode { get; set; }
+        public string Class { get; internal set; }
+        public string Description { get; internal set; }
+        public string FriendlyName { get; internal set; }
+        public string ID { get; internal set; }
+        public string Manufacturer { get; internal set; }
+        public string ParentID { get; internal set; }
+        public int ProblemCode { get; internal set; }
+        public int StatusCode { get; internal set; }
 
     }
 }

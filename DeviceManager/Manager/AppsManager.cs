@@ -14,7 +14,7 @@ namespace DeviceManager.Manager
     {
         public static async Task<IList<AppxPackage>> GetApplicationInfo(HttpClient client,string addr)
         {
-            var res = await client.GetAsync(new Uri("http://" + addr + "/api/app/packagemanager/packages"));
+            var res = await client.GetAsync(new Uri("https://" + addr + "/api/app/packagemanager/packages"));
             var responseText = await res.Content.ReadAsStringAsync();
             if (res.IsSuccessStatusCode == true)
             {
@@ -62,7 +62,7 @@ namespace DeviceManager.Manager
         {
             throw new NotImplementedException();
         }
-        public static async void UninstallAppAsync(HttpClient client,string addr,string packageName)
+        public static async Task UninstallAppAsync(HttpClient client,string addr,string packageName)
         {
             var hrm = new HttpRequestMessage();
             hrm.Method = new HttpMethod("DELETE");
@@ -80,7 +80,7 @@ namespace DeviceManager.Manager
                 }
             }
         }
-		public static async void LaunchAppAsync(HttpClient client,string addr,string appid,string packageName)
+		public static async Task LaunchAppAsync(HttpClient client,string addr,string appid,string packageName)
         {
             var hrm = new HttpRequestMessage();
             hrm.Method = new HttpMethod("POST");

@@ -14,7 +14,7 @@ namespace DeviceManager.Manager
     {
         public static async Task<IList<Process>> GetProcessesInfoForIoTDeviceAsync(HttpClient client, string addr)
         {
-            var res = await client.GetAsync(new Uri("http://" + addr + "/api/resourcemanager/processes"));
+            var res = await client.GetAsync(new Uri("https://" + addr + "/api/resourcemanager/processes"));
             var responseText = await res.Content.ReadAsStringAsync();
             if (res.IsSuccessStatusCode == true)
             {

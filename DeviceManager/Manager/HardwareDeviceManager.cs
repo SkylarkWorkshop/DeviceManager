@@ -14,7 +14,7 @@ namespace DeviceManager.Manager
     {
         public static async Task<IList<HardwareDevice>> GetHardwareDeviceInfo(HttpClient client,string addr)
         {
-            var res = await client.GetAsync(new Uri("http://" + addr + "api/devicemanager/devices"));
+            var res = await client.GetAsync(new Uri("https://" + addr + "/api/devicemanager/devices"));
             var responseText = await res.Content.ReadAsStringAsync();
             if (res.IsSuccessStatusCode == true)
             {
@@ -24,7 +24,17 @@ namespace DeviceManager.Manager
                 jarr.ToList().ForEach(i =>
                 {
                     var o = i.GetObject();
-                    devices.Add(new HardwareDevice() { Class = o.ContainsKey("Class") ? o["Class"].GetString() : "", FriendlyName = o.ContainsKey("FriendlyName") ? o["FriendlyName"].GetString() : "", Description = o.ContainsKey("Description") ? o["Description"].GetString() : "", ID = o.ContainsKey("ID") ? o["ID"].GetString() : "", Manufacturer = o.ContainsKey("Manufacturer") ? o["Manufacturer"].GetString() : "", ParentID = o.ContainsKey("ParentID") ? o["ParentID"].GetString() : "", ProblemCode = o.ContainsKey("ProblemCode") ? Convert.ToInt32(o["ProblemCode"].GetNumber()) : 0, StatusCode = o.ContainsKey("StatusCode") ? Convert.ToInt32(o["StatusCode"].GetNumber()) : 0 });
+                    devices.Add(new HardwareDevice()
+                    {
+                        Class = o.ContainsKey("Class") ? o["Class"].GetString() : "",
+                        FriendlyName = o.ContainsKey("FriendlyName") ? o["FriendlyName"].GetString() : "",
+                        Description = o.ContainsKey("Description") ? o["Description"].GetString() : "",
+                        ID = o.ContainsKey("ID") ? o["ID"].GetString() : "",
+                        Manufacturer = o.ContainsKey("Manufacturer") ? o["Manufacturer"].GetString() : "",
+                        ParentID = o.ContainsKey("ParentID") ? o["ParentID"].GetString() : "",
+                        ProblemCode = o.ContainsKey("ProblemCode") ? Convert.ToInt32(o["ProblemCode"].GetNumber()) : 0,
+                        StatusCode = o.ContainsKey("StatusCode") ? Convert.ToInt32(o["StatusCode"].GetNumber()) : 0
+                    });
                 });
                 return devices;
             }

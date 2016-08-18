@@ -58,12 +58,27 @@ namespace DeviceManager
             throw new NotImplementedException();
         }
 
+        public Task<SystemPerf> GetSystemPerfAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task LaunchAppAsync(string appid, string packageName)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Reboot()
         {
             throw new NotImplementedException();
         }
 
         public void Shutdown()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task UninstallAppAsync(string packageName)
         {
             throw new NotImplementedException();
         }

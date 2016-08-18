@@ -18,5 +18,8 @@ namespace DeviceManager
         void Reboot();
         Task<IList<Process>> GetProcessesInfoAsync();
         Task<IList<AppxPackage>> GetAppsInfoAsync();
+        Task UninstallAppAsync(string packageName);
+        Task LaunchAppAsync(string appid,string packageName);
+        Task<SystemPerf> GetSystemPerfAsync();
     }
 }

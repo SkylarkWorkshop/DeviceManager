@@ -8,35 +8,38 @@ namespace DeviceManager.Model
 {
     public class SystemPerf
     {
-        public double AvailablePages { get; set; }
-        public double CommitLimit { get; set; }
-        public double CommittedPages { get; set; }
-        public double CpuLoad { get; set; }
-        public double IOOtherSpeed { get; set; }
-        public double IOReadSpeed { get; set; }
-        public double IOWriteSpeed { get; set; }
-        public double NonPagedPoolPages { get; set; }
-        public double PageSize { get; set; }
-        public double PagedPoolPages { get; set; }
-        public double TotalPages { get; set; }
-        public GpuData GPUData { get; set; }
-        public NetData NetworkingData { get; set; }
+        public int AvailablePages { get; internal set; }
+        public int CommitLimit { get; internal set; }
+        public int CommittedPages { get; internal set; }
+        public int CpuLoad { get; internal set; }
+        public int IOOtherSpeed { get; internal set; }
+        public int IOReadSpeed { get; internal set; }
+        public int IOWriteSpeed { get; internal set; }
+        public int NonPagedPoolPages { get; internal set; }
+        public int PageSize { get; internal set; }
+        public int PagedPoolPages { get; internal set; }
+        public int TotalPages { get; internal set; }
+        public GpuData GPUData { get; internal set; }
+        public NetData NetworkingData { get; internal set; }
+        public int TotalInstalledInKb { get; internal set; }
+
         public class GpuData
         {
             public class GpuAdapter
             {
-                public double DedicatedMemory { get; set; }
-                public double DedicatedMemoryUsed { get; set; }
-                public string Description { get; set; }
-                public double SystemMemory { get; set; }
-                public double SystemMemoryUsed { get; set; }
+                public int DedicatedMemory { get; internal set; }
+                public int DedicatedMemoryUsed { get; internal set; }
+                public string Description { get; internal set; }
+                public int SystemMemory { get; internal set; }
+                public int SystemMemoryUsed { get; internal set; }
+                public IEnumerable<float> EnginesUtilization { get; internal set; }
             }
-            public GpuAdapter[] AvailableGPUAdapters { get; set; }
+            public IEnumerable<GpuAdapter> AvailableGPUAdapters { get; internal set; }
         }
         public class NetData
         {
-            public double NetworkInBytes { get; set; }
-            public double NetworkOutBytes { get; set; }
+            public int NetworkInBytes { get; internal set; }
+            public int NetworkOutBytes { get; internal set; }
         }
     }
 }

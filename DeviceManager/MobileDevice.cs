@@ -20,7 +20,7 @@ namespace DeviceManager
         HttpClient client;
         HttpBaseProtocolFilter filter;
         /// <summary>
-        /// Init and connect to the mobile device with the specified address.
+        /// Init and connect to the mobile device with specified address.
         /// </summary>
         /// <param name="addr"></param>
         public MobileDevice(string addr)
@@ -50,11 +50,11 @@ namespace DeviceManager
         /// </summary>
         public bool IsAuthed { get; private set; }
         /// <summary>
-        /// Get a bool value which indicates if the current the connection to the mobile device has established successfully.
+        /// Get a bool value which indicates if the connection to the mobile device has established successfully.
         /// </summary>
         public bool IsConnected { get; private set; }
         /// <summary>
-        /// Return the device of current device.
+        /// Get the device type of current device.
         /// </summary>
         public DeviceType DeviceType
         {
@@ -105,7 +105,7 @@ namespace DeviceManager
             }
         }
         /// <summary>
-        /// Shutdown the current device.
+        /// Shutdown current device.
         /// </summary>
         public async void Shutdown()
         {
@@ -131,7 +131,7 @@ namespace DeviceManager
             }  
         }
         /// <summary>
-        /// Restart the current device.
+        /// Restart current device.
         /// </summary>
         public async void Reboot()
         {
@@ -184,15 +184,45 @@ namespace DeviceManager
             }
             
         }
-
+        /// <summary>
+        /// Get processes information of current device.
+        /// </summary>
+        /// <returns></returns>
         public async Task<IList<Process>> GetProcessesInfoAsync()
         {
             return await ProcessManager.GetProcessesInfoForMobileDeviceAsync(this.client, this.Address);
         }
-
+        /// <summary>
+        /// Get installed apps' information of current device.
+        /// </summary>
+        /// <returns></returns>
         public async Task<IList<AppxPackage>> GetAppsInfoAsync()
         {
             return await AppsManager.GetApplicationInfo(this.client, this.Address);
+        }
+        /// <summary>
+        /// Uninstall the app with specified packageName from current device.
+        /// </summary>
+        /// <param name="packageName">Package Name</param>
+        /// <returns></returns>
+        public async Task UninstallAppAsync(string packageName)
+        {
+            await AppsManager.UninstallAppAsync(this.client, this.Address, packageName);
+        }
+        /// <summary>
+        /// Launch the app with specified appid and packageName
+        /// </summary>
+        /// <param name="appid">App Id</param>
+        /// <param name="packageName">Package Name</param>
+        /// <returns></returns>
+        public async Task LaunchAppAsync(string appid, string packageName)
+        {
+            await AppsManager.LaunchAppAsync(this.client, this.Address,appid, packageName);
+        }
+
+        public async Task<SystemPerf> GetSystemPerfAsync()
+        {
+            return await SysPerfManager.GetSystemPerfAsync(this.client, this.Address);
         }
     }
 }

@@ -111,6 +111,7 @@
     <Compile Include="Manager\AppsManager.cs" />
     <Compile Include="Manager\HardwareDeviceManager.cs" />
     <Compile Include="Manager\ProcessManager.cs" />
+    <Compile Include="Manager\SysPerfManager.cs" />
     <Compile Include="Model\AppxPackage.cs" />
     <Compile Include="ConnectCredential.cs" />
     <Compile Include="Model\HardwareDevice.cs" />
