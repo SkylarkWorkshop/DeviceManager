@@ -210,7 +210,7 @@ namespace DeviceManager
             await AppsManager.UninstallAppAsync(this.client, this.Address, packageName);
         }
         /// <summary>
-        /// Launch the app with specified appid and packageName
+        /// Launch the app with specified appid and packageName.
         /// </summary>
         /// <param name="appid">App Id</param>
         /// <param name="packageName">Package Name</param>
@@ -219,7 +219,19 @@ namespace DeviceManager
         {
             await AppsManager.LaunchAppAsync(this.client, this.Address,appid, packageName);
         }
-
+        /// <summary>
+        /// Close the specified app.
+        /// </summary>
+        /// <param name="packageName"></param>
+        /// <returns></returns>
+        public async Task CloseAppAsync(string packageName)
+        {
+            await AppsManager.CloseAppAsync(this.client, this.Address, packageName);
+        }
+        /// <summary>
+        /// Get system performance information.
+        /// </summary>
+        /// <returns></returns>
         public async Task<SystemPerf> GetSystemPerfAsync()
         {
             return await SysPerfManager.GetSystemPerfAsync(this.client, this.Address);

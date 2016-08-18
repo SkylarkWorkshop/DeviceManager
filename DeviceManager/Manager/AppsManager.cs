@@ -98,5 +98,23 @@ namespace DeviceManager.Manager
                 }
             }
         }
+        public static async Task CloseAppAsync(HttpClient client, string addr, string packageName)
+        {
+            var hrm = new HttpRequestMessage();
+            hrm.Method = new HttpMethod("DELETE");
+            hrm.RequestUri = new Uri(string.Format("http://{0}/api/taskmanager/app?package={1}", addr, packageName));
+            var res = await client.SendRequestAsync(hrm);
+            if (res.IsSuccessStatusCode == false)
+            {
+                if (res.StatusCode == HttpStatusCode.TemporaryRedirect)
+                {
+                    throw new DeviceConnectionException("Failed to auth.", res.StatusCode);
+                }
+                else
+                {
+                    throw new DeviceConnectionException("Failed to close.", res.StatusCode);
+                }
+            }
+        }
     }
 }
