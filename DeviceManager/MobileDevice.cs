@@ -68,7 +68,7 @@ namespace DeviceManager
                 var res=await client.GetAsync(new Uri($"https://{Address}/default.htm"));
                 if(filter!=null)
                 {
-                    var cookies = filter.CookieManager.GetCookies(new Uri($"https://{Address}/default.htm")).Where(x=>x.Name== "CSRF-Token");
+                    var cookies = filter.CookieManager.GetCookies(new Uri($"http://{Address}/default.htm")).Where(x=>x.Name== "CSRF-Token");
                     foreach(var i in cookies)
                     {
                         client.DefaultRequestHeaders.Add("X-CSRF-Token", i.Value);
